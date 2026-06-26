@@ -6,9 +6,14 @@
   <title>Living Testimonies - Youth Ministry | Cinematic Gallery</title>
   <meta name="description" content="Youth Ministry Portfolio - Cinematic Style" />
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <!-- GLightbox -->
   <link href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" rel="stylesheet" />
 
   <style>
@@ -34,33 +39,33 @@
     .glightbox-container .gslide-description {
       background: rgba(0,0,0,0.8) !important;
       backdrop-filter: blur(10px) !important;
-      padding: 15px 20px !important;
-      border-radius: 12px !important;
+      padding: 10px 15px !important;
+      border-radius: 8px !important;
       max-width: 90% !important;
       margin: 0 auto !important;
       position: relative !important;
-      bottom: 20px !important;
+      bottom: 10px !important;
     }
     
     .glightbox-container .gslide-description .gslide-title {
       color: #ffd700 !important;
-      font-size: 1rem !important;
+      font-size: 0.85rem !important;
       font-weight: 600 !important;
     }
     
     .glightbox-container .gslide-description .gslide-desc {
-      color: rgba(255,255,255,0.8) !important;
-      font-size: 0.85rem !important;
+      color: rgba(255,255,255,0.7) !important;
+      font-size: 0.75rem !important;
     }
     
     .glightbox-container .gclose,
     .glightbox-container .gnext,
     .glightbox-container .gprev {
-      background: rgba(0,0,0,0.6) !important;
-      backdrop-filter: blur(10px) !important;
+      background: rgba(0,0,0,0.5) !important;
+      backdrop-filter: blur(8px) !important;
       border-radius: 50% !important;
-      width: 45px !important;
-      height: 45px !important;
+      width: 36px !important;
+      height: 36px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
@@ -76,24 +81,25 @@
     }
     
     .glightbox-container .gclose {
-      top: 20px !important;
-      right: 20px !important;
+      top: 12px !important;
+      right: 12px !important;
     }
     
     .glightbox-container .gnext {
-      right: 20px !important;
+      right: 12px !important;
     }
     
     .glightbox-container .gprev {
-      left: 20px !important;
+      left: 12px !important;
     }
     
     .glightbox-container .gslide-image img {
       max-height: 80vh !important;
       object-fit: contain !important;
-      border-radius: 8px !important;
+      border-radius: 6px !important;
     }
 
+    /* LOADING SCREEN */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -116,11 +122,10 @@
     }
 
     .loading-logo {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 20px;
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
       animation: floatGlow 2.4s ease-in-out infinite;
-      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
     }
 
     .loading-logo img {
@@ -128,56 +133,21 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
     }
 
     @keyframes floatGlow {
-      0% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
-      50% { transform: translateY(-10px) scale(1.04); filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.7)); }
-      100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.04); }
+      100% { transform: translateY(0) scale(1); }
     }
 
     .loading-text {
-      font-size: 1.4rem;
+      font-size: 1rem;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.85);
-      letter-spacing: 4px;
-      margin-bottom: 28px;
-      text-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
       font-family: "Playfair Display", serif;
-    }
-
-    .progress-container {
-      width: 220px;
-      height: 3px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 0 auto;
-    }
-
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, #ffd700, #f5a623, #ffd700);
-      background-size: 200% 100%;
-      animation: shimmerProgress 1.8s infinite;
-      transition: width 0.25s ease;
-      border-radius: 4px;
-    }
-
-    @keyframes shimmerProgress {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    .loading-percent {
-      font-size: 0.8rem;
-      color: rgba(255, 215, 0, 0.7);
-      margin-top: 16px;
-      font-family: monospace;
-      letter-spacing: 2px;
-      font-weight: 300;
     }
 
     .loading-screen.hide {
@@ -194,12 +164,12 @@
       opacity: 1;
     }
 
+    /* COLOR THEME */
     :root {
       --cinema-color: #ffd700;
       --gold: #f5c542;
       --gold-dim: rgba(245, 197, 66, 0.12);
       --gold-hover: rgba(245, 197, 66, 0.25);
-      --gold-glow: rgba(245, 197, 66, 0.25);
       --bg-body: #08080c;
       --bg-card: #111118;
       --bg-card-hover: #191925;
@@ -209,19 +179,20 @@
       --text-dim: #606070;
     }
 
+    /* NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 18px 0;
+      padding: 12px 0;
       background: transparent;
       transition: all 0.3s ease;
     }
 
     .navbar.scrolled {
-      padding: 12px 0;
+      padding: 8px 0;
       background: rgba(8, 8, 12, 0.92);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -233,24 +204,24 @@
       align-items: center;
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 16px;
     }
 
     .navbar .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       text-decoration: none;
     }
 
     .navbar .logo img {
-      width: 34px;
-      height: 34px;
+      width: 26px;
+      height: 26px;
       object-fit: contain;
     }
 
     .navbar .logo h1 {
-      font-size: 1.15rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--text-white);
       margin: 0;
@@ -261,7 +232,7 @@
     .navbar .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 24px;
       list-style: none;
       margin: 0;
     }
@@ -270,10 +241,10 @@
       color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       transition: color 0.3s;
       position: relative;
-      padding: 4px 0;
+      padding: 3px 0;
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
@@ -304,14 +275,15 @@
       background: none;
       border: none;
       color: var(--text-white);
-      font-size: 22px;
+      font-size: 18px;
       cursor: pointer;
       padding: 4px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
+    /* YOUTH OFFICERS */
     .youth-officers-section { 
-      padding: 140px 0 100px; 
+      padding: 100px 0 60px; 
       position: relative; 
       overflow: hidden;
       isolation: isolate;
@@ -329,8 +301,6 @@
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      transform: translateZ(0);
-      will-change: transform;
       z-index: -2;
     }
 
@@ -352,14 +322,14 @@
 
     .section-title { 
       text-align: center; 
-      margin-bottom: 60px; 
+      margin-bottom: 40px; 
     }
 
     .section-title h2 { 
-      font-size: 2.5rem; 
+      font-size: 1.8rem; 
       font-weight: 800; 
       color: white; 
-      letter-spacing: 2px; 
+      letter-spacing: 1px; 
     }
 
     .section-title h2 span { 
@@ -371,30 +341,28 @@
     .section-title h2 span::after { 
       content: ""; 
       position: absolute; 
-      bottom: -10px; 
+      bottom: -6px; 
       left: 0; 
       right: 0; 
-      height: 3px; 
+      height: 2px; 
       background: linear-gradient(90deg, transparent, var(--cinema-color), transparent); 
     }
 
     .section-title p { 
-      color: rgba(255, 255, 255, 0.8); 
-      margin-top: 15px; 
+      color: rgba(255, 255, 255, 0.6); 
+      margin-top: 8px; 
+      font-size: 0.8rem;
     }
 
-    /* ============================================ */
-    /* OFFICERS GRID - FIXED FOR 2 PER ROW ON MOBILE */
-    /* ============================================ */
     .officers-grid { 
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      max-width: 1300px; 
+      gap: 20px;
+      max-width: 1200px; 
       margin: 0 auto; 
       position: relative; 
       z-index: 2; 
-      padding: 0 20px;
+      padding: 0 16px;
     }
 
     .officer-card {
@@ -408,26 +376,26 @@
       position: relative;
       background: rgba(20, 20, 30, 0.8);
       backdrop-filter: blur(10px);
-      border-radius: 30px;
-      padding: 30px 20px 25px;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
+      padding: 20px 14px 16px;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      transition: all 0.3s ease;
       height: 100%;
       display: flex;
       flex-direction: column;
     }
 
     .officer-card:hover .card-inner { 
-      transform: translateY(-10px); 
+      transform: translateY(-4px); 
       background: rgba(30, 30, 45, 0.9); 
-      border-color: rgba(255, 215, 0, 0.5); 
+      border-color: rgba(255, 215, 0, 0.3); 
     }
 
     .avatar-frame { 
       position: relative; 
-      width: 150px; 
-      height: 150px; 
-      margin: -50px auto 15px; 
+      width: 110px; 
+      height: 110px; 
+      margin: -40px auto 10px; 
       z-index: 10; 
       border-radius: 50%; 
       overflow: hidden; 
@@ -446,40 +414,40 @@
       height: 100%; 
       object-fit: cover; 
       border-radius: 50%; 
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-      transition: all 0.4s ease; 
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); 
+      transition: all 0.3s ease; 
     }
 
     .officer-card:hover .avatar img { 
-      transform: scale(1.08); 
-      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3); 
+      transform: scale(1.05); 
+      box-shadow: 0 12px 30px rgba(255, 215, 0, 0.2); 
     }
 
     .avatar-ring { 
       position: absolute; 
-      top: -8px; 
-      left: -8px; 
-      right: -8px; 
-      bottom: -8px; 
+      top: -4px; 
+      left: -4px; 
+      right: -4px; 
+      bottom: -4px; 
       border-radius: 50%; 
       border: 2px solid rgba(255, 215, 0, 0); 
-      transition: all 0.4s ease; 
+      transition: all 0.3s ease; 
       pointer-events: none; 
     }
 
     .officer-card:hover .avatar-ring { 
       border-color: #ffd700; 
-      top: -15px; 
-      left: -15px; 
-      right: -15px; 
-      bottom: -15px; 
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); 
+      top: -8px; 
+      left: -8px; 
+      right: -8px; 
+      bottom: -8px; 
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.15); 
     }
 
     .hover-dot { 
       position: absolute; 
-      bottom: -5px; 
-      right: -5px; 
+      bottom: -4px; 
+      right: -4px; 
       width: 0; 
       height: 0; 
       background: #ffd700; 
@@ -489,26 +457,26 @@
     }
 
     .officer-card:hover .hover-dot { 
-      width: 12px; 
-      height: 12px; 
-      bottom: -8px; 
-      right: -8px; 
+      width: 8px; 
+      height: 8px; 
+      bottom: -5px; 
+      right: -5px; 
     }
 
     .officer-info {
       text-align: center;
-      margin-top: 15px;
+      margin-top: 10px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .officer-info h3 {
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: white;
       transition: color 0.3s;
-      min-height: 35px;
+      min-height: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -519,52 +487,50 @@
     }
 
     .officer-info .role {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.4);
       letter-spacing: 1px;
-      min-height: 25px;
+      min-height: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .officer-info .bio {
-      font-size: 0.7rem;
+      font-size: 0.55rem;
       opacity: 0.7;
-      margin-top: 8px;
-      min-height: 50px;
+      margin-top: 4px;
+      min-height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 5px;
-      line-height: 1.4;
+      padding: 0 3px;
+      line-height: 1.3;
     }
 
     .officer-card::before { 
       content: ""; 
       position: absolute; 
-      bottom: -10px; 
+      bottom: -6px; 
       left: 10%; 
       width: 80%; 
-      height: 15px; 
+      height: 10px; 
       background: rgba(0, 0, 0, 0.3); 
-      filter: blur(10px); 
+      filter: blur(8px); 
       border-radius: 50%; 
-      transition: all 0.4s ease; 
-      opacity: 0.5; 
+      transition: all 0.3s ease; 
+      opacity: 0.3; 
     }
 
     .officer-card:hover::before { 
-      bottom: -20px; 
-      filter: blur(15px); 
-      opacity: 0.8; 
+      bottom: -12px; 
+      filter: blur(10px); 
+      opacity: 0.6; 
     }
 
-    /* ============================================ */
     /* GALLERY */
-    /* ============================================ */
     .gallery {
-      padding: 80px 0;
+      padding: 50px 0;
       background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 50%, #1a1a2e 100%);
       position: relative;
       overflow: hidden;
@@ -577,12 +543,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.04"/></svg>');
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>');
       background-repeat: repeat;
       pointer-events: none;
       z-index: 0;
     }
 
+    /* REDUCED STARS */
     .stars-container {
       position: absolute;
       top: 0;
@@ -596,93 +563,61 @@
 
     .star {
       position: absolute;
-      background: radial-gradient(circle, rgba(255,215,0,0.8), rgba(255,215,0,0.1));
+      background: radial-gradient(circle, rgba(255,215,0,0.3), rgba(255,215,0,0.02));
       border-radius: 50%;
-      animation: twinkle 3s ease-in-out infinite;
+      animation: twinkle 4s ease-in-out infinite;
       opacity: 0;
     }
 
     @keyframes twinkle {
       0%, 100% { opacity: 0; transform: scale(0.5); }
-      50% { opacity: 0.8; transform: scale(1.2); }
-    }
-
-    .shooting-star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: linear-gradient(90deg, #ffd700, transparent);
-      border-radius: 50%;
-      animation: shoot 4s linear infinite;
-      opacity: 0;
-    }
-
-    @keyframes shoot {
-      0% { opacity: 0; transform: translateX(0) translateY(0); }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { opacity: 0; transform: translateX(-200px) translateY(200px); }
-    }
-
-    .sparkle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #ffd700;
-      border-radius: 50%;
-      animation: sparkle 2s ease-in-out infinite;
-      box-shadow: 0 0 10px rgba(255,215,0,0.8);
-    }
-
-    @keyframes sparkle {
-      0%, 100% { opacity: 0; transform: scale(0); }
-      50% { opacity: 1; transform: scale(1.5); }
+      50% { opacity: 0.4; transform: scale(1.2); }
     }
 
     .gallery-header { 
       text-align: center; 
-      margin-bottom: 40px; 
+      margin-bottom: 30px; 
       position: relative; 
       z-index: 2; 
-      padding: 0 15px;
+      padding: 0 12px;
     }
 
     .gallery-header h2 { 
-      font-size: 2rem; 
+      font-size: 1.5rem; 
       color: white; 
-      margin-bottom: 10px; 
+      margin-bottom: 6px; 
       font-family: "Playfair Display", serif; 
       letter-spacing: 2px; 
     }
 
     .gallery-header h2 span { 
       color: #ffd700; 
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); 
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.15); 
     }
 
     .gallery-header p { 
-      color: rgba(255, 255, 255, 0.5); 
+      color: rgba(255, 255, 255, 0.35); 
       font-family: monospace; 
       letter-spacing: 1px; 
-      font-size: 0.7rem; 
+      font-size: 0.55rem; 
     }
 
     .cinema-lights {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
+      gap: 6px;
+      margin-bottom: 20px;
       position: relative;
       z-index: 2;
     }
 
     .cinema-lights span {
-      width: 6px;
-      height: 6px;
+      width: 4px;
+      height: 4px;
       background: #ffd700;
       border-radius: 50%;
       animation: pulse 1.5s infinite;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
     }
 
     .cinema-lights span:nth-child(2) { animation-delay: 0.3s; }
@@ -697,13 +632,13 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      margin-bottom: 40px;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 30px;
+      transition: opacity 0.25s ease;
       position: relative;
       z-index: 2;
-      padding: 0 15px;
+      padding: 0 12px;
     }
 
     .photo-card {
@@ -711,19 +646,24 @@
       cursor: pointer;
       transition: all 0.3s ease;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 6px;
       -webkit-tap-highlight-color: transparent;
     }
 
     .photo-card:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
+    }
+
+    .photo-card:hover {
+      transform: scale(1.02);
+      z-index: 5;
     }
 
     .photo-image {
       position: relative;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 6px;
       background: #1a1a2e;
     }
 
@@ -732,101 +672,100 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: blur(8px) brightness(0.8);
-      transform: scale(1.05);
-      transition: all 0.5s ease;
+      transition: all 0.4s ease;
+      will-change: transform;
     }
 
     .photo-image img.loaded { 
-      filter: blur(0px) brightness(1); 
-      transform: scale(1); 
+      opacity: 1;
     }
 
     .photo-image img.error {
       object-fit: contain;
-      padding: 20px;
-      filter: blur(0px) brightness(0.5);
+      padding: 10px;
+      opacity: 0.5;
     }
 
     .photo-image::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.5) 100%);
-      opacity: 0.6;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.3) 100%);
+      opacity: 0.5;
       pointer-events: none;
       transition: opacity 0.3s ease;
-      border-radius: 10px;
+      border-radius: 6px;
     }
 
-    .photo-card:hover .photo-image::after { opacity: 0.9; }
+    .photo-card:hover .photo-image::after { opacity: 0.7; }
 
     .photo-image .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: 2;
-      border-radius: 10px;
+      border-radius: 6px;
     }
 
     .photo-card:hover .photo-image .overlay { opacity: 1; }
 
     .overlay-icon {
-      font-size: 36px;
+      font-size: 24px;
       color: #ffd700;
       transform: scale(0.8);
       transition: transform 0.3s ease;
-      filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.2));
     }
 
     .photo-card:hover .overlay-icon { transform: scale(1); }
 
     .cinematic-caption {
       text-align: center;
-      margin-top: 8px;
+      margin-top: 4px;
       font-family: monospace;
     }
 
     .cinematic-caption .scene-number { 
-      font-size: 0.6rem; 
+      font-size: 0.45rem; 
       color: #ffd700; 
       letter-spacing: 1px; 
     }
 
     .cinematic-caption .caption-text { 
-      font-size: 0.65rem; 
-      color: rgba(255, 255, 255, 0.7); 
+      font-size: 0.45rem; 
+      color: rgba(255, 255, 255, 0.5); 
       margin-top: 2px; 
       font-weight: 300; 
     }
 
+    /* PAGINATION */
     .pagination {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 15px;
-      margin-top: 30px;
+      gap: 10px;
+      margin-top: 20px;
       position: relative;
       z-index: 2;
-      padding: 0 15px;
+      padding: 0 12px;
     }
 
     .page-btn {
       background: transparent;
-      border: 2px solid #ffb83b;
+      border: 1.5px solid #ffb83b;
       color: #ffb83b;
-      padding: 10px 24px;
+      padding: 6px 16px;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       cursor: pointer;
       transition: all 0.3s;
-      min-width: 100px;
+      min-width: 70px;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -834,7 +773,7 @@
       background: #ffb83b;
       color: #000;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 184, 59, 0.3);
+      box-shadow: 0 3px 12px rgba(255, 184, 59, 0.2);
     }
 
     .page-btn:active:not(:disabled) {
@@ -848,15 +787,15 @@
 
     .page-indicator {
       display: flex;
-      gap: 8px;
+      gap: 5px;
       align-items: center;
     }
 
     .page-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
       transition: all 0.3s ease;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
@@ -865,11 +804,11 @@
     .page-dot.active {
       background: #ffb83b;
       transform: scale(1.3);
-      box-shadow: 0 0 8px rgba(255, 184, 59, 0.5);
+      box-shadow: 0 0 8px rgba(255, 184, 59, 0.3);
     }
 
     .page-dot:hover:not(.active) {
-      background: rgba(255, 184, 59, 0.5);
+      background: rgba(255, 184, 59, 0.3);
       transform: scale(1.1);
     }
 
@@ -887,20 +826,27 @@
       transform: scale(1); 
     }
 
+    /* FOOTER */
     .footer { 
       text-align: center; 
-      padding: 30px 20px; 
+      padding: 20px; 
       background: #050505; 
-      border-top: 1px solid rgba(255, 215, 0, 0.2); 
+      border-top: 1px solid rgba(255, 215, 0, 0.05); 
     }
 
+    .footer p {
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* SCROLL TOP */
     .scroll-top {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 16px;
+      right: 16px;
       background: #ffb83b;
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -911,7 +857,7 @@
       visibility: hidden;
       transition: all 0.3s;
       z-index: 999;
-      box-shadow: 0 0 10px rgba(255, 184, 59, 0.5);
+      box-shadow: 0 0 10px rgba(255, 184, 59, 0.2);
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -921,32 +867,33 @@
     }
 
     .scroll-top:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 5px 20px rgba(255, 184, 59, 0.6); 
+      transform: translateY(-2px); 
+      box-shadow: 0 4px 15px rgba(255, 184, 59, 0.3); 
     }
 
     .scroll-top:active {
       transform: scale(0.9);
     }
 
+    /* SWIPE HINT */
     .swipe-hint {
       position: fixed;
-      bottom: 20px;
+      bottom: 60px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(10px);
-      padding: 6px 16px;
-      border-radius: 40px;
+      backdrop-filter: blur(8px);
+      padding: 4px 12px;
+      border-radius: 30px;
       color: #ffd700;
-      font-size: 0.7rem;
+      font-size: 0.5rem;
       z-index: 10000;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
       font-family: monospace;
       white-space: nowrap;
     }
@@ -956,121 +903,103 @@
     }
 
     .swipe-hint i {
-      font-size: 1rem;
+      font-size: 0.7rem;
     }
 
-    /* ============================================ */
     /* RESPONSIVE */
-    /* ============================================ */
-    
-    /* Desktop */
     @media (min-width: 1200px) { 
       .gallery-grid { 
-        grid-template-columns: repeat(5, 1fr); 
-        gap: 20px; 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 12px; 
       } 
-      .gallery-header h2 { font-size: 2.5rem; }
     }
 
-    /* Tablets */
     @media (max-width: 1199px) and (min-width: 768px) { 
       .gallery-grid { 
         grid-template-columns: repeat(3, 1fr); 
-        gap: 18px; 
+        gap: 12px; 
       } 
-      .gallery-header h2 { font-size: 2.2rem; }
-      .officers-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 30px;
-      }
-    }
-
-    /* Mobile */
-    @media (max-width: 767px) {
-      /* OFFICERS - 2 per row on mobile */
       .officers-grid { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 20px;
-        padding: 0 12px;
       }
-      
-      .officer-card {
-        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+      .officers-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 14px;
+        padding: 0 10px;
       }
       
       .avatar-frame { 
-        width: 100px; 
-        height: 100px; 
-        margin: -35px auto 10px; 
+        width: 80px; 
+        height: 80px; 
+        margin: -30px auto 8px; 
       }
       
       .officer-info h3 {
-        font-size: 0.9rem;
-        min-height: 28px;
-      }
-      
-      .officer-info .role {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         min-height: 20px;
       }
       
+      .officer-info .role {
+        font-size: 0.5rem;
+        min-height: 16px;
+      }
+      
       .officer-info .bio {
-        font-size: 0.6rem;
-        min-height: 35px;
-        margin-top: 5px;
+        font-size: 0.5rem;
+        min-height: 28px;
+        margin-top: 2px;
       }
       
       .card-inner {
-        padding: 20px 12px 18px;
-        border-radius: 20px;
+        padding: 14px 8px 12px;
+        border-radius: 16px;
       }
 
-      /* GALLERY - 2 per row on mobile */
       .gallery-grid { 
         grid-template-columns: repeat(2, 1fr); 
-        gap: 12px; 
-        padding: 0 12px;
+        gap: 8px; 
+        padding: 0 10px;
       }
       
       .gallery-header h2 { 
-        font-size: 1.5rem; 
+        font-size: 1.2rem; 
         letter-spacing: 1px;
       }
       
-      .gallery-header p { 
-        font-size: 0.6rem; 
-      }
-      
       .section-title h2 { 
-        font-size: 1.8rem; 
+        font-size: 1.4rem; 
       }
       
       .photo-image .overlay-icon {
-        font-size: 28px;
+        font-size: 20px;
       }
       
       .cinematic-caption .scene-number { 
-        font-size: 0.5rem; 
+        font-size: 0.4rem; 
       }
       
       .cinematic-caption .caption-text { 
-        font-size: 0.55rem; 
+        font-size: 0.4rem; 
       }
       
       .page-btn { 
-        padding: 8px 16px; 
-        min-width: 80px; 
-        font-size: 0.75rem; 
+        padding: 5px 12px; 
+        min-width: 60px; 
+        font-size: 0.6rem; 
         border-width: 1.5px;
       }
       
       .page-dot {
-        width: 6px;
-        height: 6px;
+        width: 5px;
+        height: 5px;
       }
       
       .pagination {
-        gap: 10px;
+        gap: 8px;
       }
       
       .navbar .nav-links {
@@ -1081,8 +1010,8 @@
         right: 0;
         background: rgba(8, 8, 12, 0.98);
         flex-direction: column;
-        padding: 16px 20px;
-        gap: 10px;
+        padding: 12px 16px;
+        gap: 6px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.03);
       }
 
@@ -1095,16 +1024,16 @@
       }
       
       .navbar .logo h1 {
-        font-size: 1rem;
+        font-size: 0.8rem;
       }
       
       .navbar .logo img {
-        width: 28px;
-        height: 28px;
+        width: 22px;
+        height: 22px;
       }
       
       .youth-officers-section { 
-        padding: 120px 0 60px; 
+        padding: 80px 0 40px; 
         background-attachment: scroll;
       }
       
@@ -1113,165 +1042,140 @@
       }
       
       .loading-logo {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
       }
       
       .loading-text {
-        font-size: 1rem;
-      }
-      
-      .progress-container {
-        width: 160px;
+        font-size: 0.85rem;
       }
 
       .swipe-hint {
-        font-size: 0.55rem;
-        padding: 4px 12px;
-        bottom: 15px;
-        gap: 5px;
+        font-size: 0.45rem;
+        padding: 3px 8px;
+        bottom: 50px;
+        gap: 3px;
       }
       
       .swipe-hint i {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
       }
       
       .scroll-top {
-        width: 36px;
-        height: 36px;
-        bottom: 15px;
-        right: 15px;
-        font-size: 0.8rem;
+        width: 28px;
+        height: 28px;
+        bottom: 12px;
+        right: 12px;
+        font-size: 0.6rem;
       }
       
       .cinema-lights {
-        gap: 8px;
+        gap: 4px;
       }
       
       .cinema-lights span {
-        width: 5px;
-        height: 5px;
+        width: 3px;
+        height: 3px;
       }
 
-      /* Mobile lightbox fixes */
       .glightbox-container .gclose {
-        top: 10px !important;
-        right: 10px !important;
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 16px !important;
+        top: 8px !important;
+        right: 8px !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
       }
       
       .glightbox-container .gnext {
-        right: 10px !important;
-        width: 35px !important;
-        height: 35px !important;
+        right: 8px !important;
+        width: 30px !important;
+        height: 30px !important;
       }
       
       .glightbox-container .gprev {
-        left: 10px !important;
-        width: 35px !important;
-        height: 35px !important;
+        left: 8px !important;
+        width: 30px !important;
+        height: 30px !important;
       }
       
       .glightbox-container .gslide-image img {
-        max-height: 70vh !important;
-      }
-      
-      .glightbox-container .gslide-description {
-        padding: 10px 15px !important;
-        bottom: 10px !important;
-        max-width: 95% !important;
-      }
-      
-      .glightbox-container .gslide-description .gslide-title {
-        font-size: 0.85rem !important;
-      }
-      
-      .glightbox-container .gslide-description .gslide-desc {
-        font-size: 0.7rem !important;
+        max-height: 60vh !important;
       }
     }
 
-    /* Very small phones */
-    @media (max-width: 400px) { 
-      .gallery-grid { 
-        grid-template-columns: 1fr 1fr; 
-        gap: 10px; 
-        padding: 0 10px;
-      }
-      
+    @media (max-width: 480px) {
       .officers-grid { 
-        grid-template-columns: 1fr 1fr; 
-        gap: 15px;
-        padding: 0 10px;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+        padding: 0 8px;
       }
       
       .avatar-frame { 
-        width: 80px; 
-        height: 80px; 
-        margin: -30px auto 8px; 
+        width: 65px; 
+        height: 65px; 
+        margin: -22px auto 6px; 
       }
       
       .officer-info h3 {
-        font-size: 0.8rem;
-        min-height: 24px;
-      }
-      
-      .officer-info .role {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
         min-height: 18px;
       }
       
+      .officer-info .role {
+        font-size: 0.45rem;
+        min-height: 14px;
+      }
+      
       .officer-info .bio {
-        font-size: 0.5rem;
-        min-height: 30px;
+        font-size: 0.45rem;
+        min-height: 22px;
       }
       
       .card-inner {
-        padding: 15px 8px 14px;
-        border-radius: 16px;
+        padding: 10px 6px 8px;
+        border-radius: 12px;
+      }
+
+      .gallery-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 6px; 
+        padding: 0 8px;
       }
       
       .gallery-header h2 { 
-        font-size: 1.3rem; 
+        font-size: 1rem; 
       }
       
       .section-title h2 { 
-        font-size: 1.5rem; 
+        font-size: 1.2rem; 
       }
       
       .page-btn { 
-        padding: 6px 12px; 
-        min-width: 65px; 
-        font-size: 0.65rem; 
+        padding: 4px 8px; 
+        min-width: 50px; 
+        font-size: 0.55rem; 
       }
     }
 
-    /* Landscape phones */
     @media (max-width: 767px) and (orientation: landscape) {
       .gallery-grid { 
         grid-template-columns: repeat(3, 1fr); 
-        gap: 10px; 
+        gap: 8px; 
       }
       
       .officers-grid { 
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 15px;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 10px;
       }
       
       .avatar-frame { 
-        width: 80px; 
-        height: 80px; 
-        margin: -30px auto 8px; 
-      }
-      
-      .gallery-header h2 { 
-        font-size: 1.4rem; 
+        width: 60px; 
+        height: 60px; 
+        margin: -20px auto 6px; 
       }
       
       .youth-officers-section { 
-        padding: 100px 0 40px; 
+        padding: 70px 0 30px; 
       }
     }
   </style>
@@ -1285,18 +1189,14 @@
       <div class="loading-logo">
         <img src="img/logo.png" alt="Logo" onerror="this.style.display='none'">
       </div>
-      <div class="loading-text">
-        Youth Ministry
-      </div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-      <div class="loading-percent" id="loadingPercent">0%</div>
+      <div class="loading-text">Youth Ministry</div>
     </div>
   </div>
 
   <!-- MAIN CONTENT -->
   <div class="main-content" id="mainContent">
+
+    <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
       <div class="container">
         <a href="index.html" class="logo">
@@ -1314,6 +1214,8 @@
     </nav>
 
     <main>
+
+      <!-- YOUTH OFFICERS -->
       <section class="youth-officers-section">
         <div class="container">
           <div class="section-title">
@@ -1325,6 +1227,7 @@
         </div>
       </section>
 
+      <!-- CINEMATIC GALLERY -->
       <section class="gallery">
         <div class="stars-container" id="starsContainer"></div>
         
@@ -1338,77 +1241,59 @@
           </div>
           <div class="gallery-grid" id="galleryGrid"></div>
           <div class="pagination">
-            <button class="page-btn" id="prevBtn">← Previous</button>
+            <button class="page-btn" id="prevBtn">← Prev</button>
             <div class="page-indicator" id="pageIndicator"></div>
             <button class="page-btn" id="nextBtn">Next →</button>
           </div>
         </div>
       </section>
+
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
         <p>© 2026 Youth Ministry — Living Testimonies</p>
       </div>
     </footer>
 
+    <!-- SCROLL TOP -->
     <a href="#" class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up"></i></a>
+
   </div>
 
+  <!-- SWIPE HINT -->
   <div class="swipe-hint" id="swipeHint">
     <i class="bi bi-hand-index-thumb"></i> SWIPE <i class="bi bi-arrow-left-right"></i>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js">
+  </script>
 
   <script>
     // ============================================
-    // LOADING SCREEN
+    // LOADING SCREEN - HIDE IMMEDIATELY
     // ============================================
-    let progress = 0;
-    const progressBar = document.getElementById('progressBar');
-    const loadingPercent = document.getElementById('loadingPercent');
     const loadingScreen = document.getElementById('loadingScreen');
     const mainContent = document.getElementById('mainContent');
     const swipeHint = document.getElementById('swipeHint');
 
-    function showSwipeHint() {
+    // Hide loading screen immediately
+    loadingScreen.classList.add('hide');
+    mainContent.classList.add('show');
+
+    // Show swipe hint
+    setTimeout(() => {
       if (swipeHint) {
         swipeHint.classList.add('show');
         setTimeout(() => {
           swipeHint.classList.remove('show');
-        }, 3000);
+        }, 2500);
       }
-    }
-
-    const loadingInterval = setInterval(() => {
-      progress += Math.random() * 15 + 5;
-      if (progress >= 100) {
-        progress = 100;
-        clearInterval(loadingInterval);
-        
-        progressBar.style.width = '100%';
-        loadingPercent.textContent = '100%';
-        
-        setTimeout(() => {
-          loadingScreen.classList.add('hide');
-          mainContent.classList.add('show');
-          
-          initStars();
-          loadOfficers();
-          loadPage();
-          updatePageIndicator();
-          updatePhotoCountDisplay();
-          initEventListeners();
-          showSwipeHint();
-        }, 400);
-      }
-      progressBar.style.width = progress + '%';
-      loadingPercent.textContent = Math.floor(progress) + '%';
-    }, 150);
+    }, 800);
 
     // ============================================
-    // STARS
+    // STARS - REDUCED
     // ============================================
     function initStars() {
       const container = document.getElementById('starsContainer');
@@ -1417,50 +1302,28 @@
       container.innerHTML = '';
       
       const isMobile = window.innerWidth < 768;
-      const starCount = isMobile ? 60 : 150;
-      const sparkleCount = isMobile ? 20 : 50;
-      const shootingStarCount = isMobile ? 3 : 8;
+      const starCount = isMobile ? 15 : 30;
       
       for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
-        star.style.width = Math.random() * 2 + 1 + 'px';
+        star.style.width = Math.random() * 1.5 + 0.5 + 'px';
         star.style.height = star.style.width;
-        star.style.animationDelay = Math.random() * 5 + 's';
-        star.style.animationDuration = Math.random() * 3 + 2 + 's';
+        star.style.animationDelay = Math.random() * 6 + 's';
+        star.style.animationDuration = Math.random() * 4 + 3 + 's';
         container.appendChild(star);
       }
-      
-      for (let i = 0; i < sparkleCount; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = Math.random() * 100 + '%';
-        sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.animationDelay = Math.random() * 4 + 's';
-        sparkle.style.animationDuration = Math.random() * 2 + 1 + 's';
-        container.appendChild(sparkle);
-      }
-      
-      for (let i = 0; i < shootingStarCount; i++) {
-        const shootingStar = document.createElement('div');
-        shootingStar.className = 'shooting-star';
-        shootingStar.style.left = Math.random() * 80 + 10 + '%';
-        shootingStar.style.top = Math.random() * 50 + '%';
-        shootingStar.style.animationDelay = Math.random() * 10 + 's';
-        shootingStar.style.animationDuration = Math.random() * 3 + 2 + 's';
-        shootingStar.style.width = Math.random() * 40 + 20 + 'px';
-        shootingStar.style.height = '2px';
-        container.appendChild(shootingStar);
-      }
     }
+
+    initStars();
 
     // ============================================
     // SETTINGS
     // ============================================
     const isMobileDevice = window.innerWidth < 768;
-    const PHOTOS_PER_PAGE = isMobileDevice ? 12 : 30;
+    const PHOTOS_PER_PAGE = isMobileDevice ? 8 : 15;
     const TOTAL_GALLERY_PHOTOS = 120;
     
     const CAPTIONS = [
@@ -1475,10 +1338,34 @@
     ];
 
     const YOUTH_OFFICERS = [
-      { imageNumber: 812, name: "Nickxon Vivero", role: "Former Youth President", bio: "Philippians 4:13 - I can do all things through Christ who strengthens me", focus: { focusX: 50, focusY: 5, scale: 1.05 } },
-      { imageNumber: 922, name: "Sit Ador", role: "Former Youth Vice President", bio: "Psalm 23:4 - Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.", focus: { focusX: 50, focusY: 5, scale: 1.05 } },
-      { imageNumber: 933, name: "Joyce Ann Saballa", role: "Former Youth Secretary", bio: "Colossians 3:17 - And whatever you do in word or deed, do all in the name of the Lord Jesus, giving thanks to God the Father through Him.", focus: { focusX: 48, focusY: 5, scale: 1.08 } },
-      { imageNumber: 944, name: "Julie Anne Tabelog", role: "Former Youth Treasurer", bio: "Colossians 3:23 - And whatsoever ye do, do it heartily, as to the Lord, and not unto men", focus: { focusX: 50, focusY: 5, scale: 1.00 } }
+      { 
+        imageNumber: 812, 
+        name: "Nickxon Vivero", 
+        role: "Former Youth President", 
+        bio: "Philippians 4:13 - I can do all things through Christ who strengthens me", 
+        focus: { focusX: 50, focusY: 5 } 
+      },
+      { 
+        imageNumber: 922, 
+        name: "Sit Ador", 
+        role: "Former Youth Vice President", 
+        bio: "Psalm 23:4 - Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.", 
+        focus: { focusX: 50, focusY: 5 } 
+      },
+      { 
+        imageNumber: 933, 
+        name: "Joyce Ann Saballa", 
+        role: "Former Youth Secretary", 
+        bio: "Colossians 3:17 - And whatever you do in word or deed, do all in the name of the Lord Jesus, giving thanks to God the Father through Him.", 
+        focus: { focusX: 48, focusY: 5 } 
+      },
+      { 
+        imageNumber: 944, 
+        name: "Julie Anne Tabelog", 
+        role: "Former Youth Treasurer", 
+        bio: "Colossians 3:23 - And whatsoever ye do, do it heartily, as to the Lord, and not unto men", 
+        focus: { focusX: 50, focusY: 5 } 
+      }
     ];
 
     let currentPageImages = [];
@@ -1524,41 +1411,41 @@
     }
 
     // ============================================
-    // IMAGE PATH HELPER
+    // IMAGE PATH - TRY .jpg FIRST, THEN .jpeg
     // ============================================
     function getImagePath(n) {
-      return [
-        `img/gallery/${n}.jpeg`,
-        `img/gallery/${n}.jpg`,
-        `img/gallery/${n}.JPG`,
-        `img/gallery/${n}.JPEG`
-      ];
+      return `img/gallery/${n}`;
     }
 
     // ============================================
-    // createPhotoCard
+    // CREATE PHOTO CARD - .jpg FIRST
     // ============================================
     async function createPhotoCard(n) {
       const card = document.createElement('div'); 
       card.className = 'photo-card';
+      card.dataset.index = n;
+      
       const imgDiv = document.createElement('div'); 
       imgDiv.className = 'photo-image';
       const img = document.createElement('img'); 
       img.alt = `Photo ${n}`;
       img.loading = 'lazy';
       img.decoding = 'async';
+      img.width = 400;
+      img.height = 225;
       
       const overlay = document.createElement('div'); 
       overlay.className = 'overlay'; 
       overlay.innerHTML = '<i class="bi bi-play-circle overlay-icon"></i>';
       
-      const paths = getImagePath(n);
-      let currentAttempt = 0;
+      // TRY .jpg FIRST, then .jpeg
+      const extensions = ['.jpg', '.jpeg'];
+      let extIndex = 0;
       
-      function tryNextPath() {
-        if (currentAttempt < paths.length) {
-          img.src = paths[currentAttempt];
-          currentAttempt++;
+      function tryNext() {
+        if (extIndex < extensions.length) {
+          img.src = getImagePath(n) + extensions[extIndex];
+          extIndex++;
         } else {
           img.src = `https://picsum.photos/seed/${n}/400/225`;
           img.classList.add('error');
@@ -1567,8 +1454,8 @@
       
       img.onerror = function() {
         this.onerror = null;
-        tryNextPath();
-        if (currentAttempt >= paths.length) {
+        tryNext();
+        if (extIndex >= extensions.length) {
           this.onerror = function() {
             this.onerror = null;
             this.src = `https://picsum.photos/seed/${n}/400/225`;
@@ -1583,7 +1470,7 @@
         }); 
       };
       
-      tryNextPath();
+      tryNext();
       
       imgDiv.appendChild(img); 
       imgDiv.appendChild(overlay);
@@ -1594,16 +1481,11 @@
       card.appendChild(imgDiv); 
       card.appendChild(captionDiv);
       
-      card.addEventListener('click', (e) => {
-        e.preventDefault();
-        openLightbox(n);
-      });
-      
       return card;
     }
 
     // ============================================
-    // LIGHTBOX FUNCTION
+    // LIGHTBOX FUNCTION - .jpg FIRST
     // ============================================
     function openLightbox(n) {
       if (lightbox) {
@@ -1615,9 +1497,8 @@
       const allImages = [];
       
       for (let i = start; i <= end; i++) {
-        const imgPaths = getImagePath(i);
         allImages.push({ 
-          href: imgPaths[0],
+          href: getImagePath(i) + '.jpg',
           type: 'image/jpeg',
           title: `SCENE ${String(i).padStart(3, '0')} - ${getCaption(i)}`,
           description: `📸 Living Testimonies - Youth Ministry`
@@ -1639,7 +1520,6 @@
         openEffect: 'zoom',
         closeEffect: 'zoom',
         slideEffect: 'fade',
-        moreText: 'Read more',
         moreLength: 60,
         closeOnOutsideClick: true,
         onOpen: function() {
@@ -1655,7 +1535,7 @@
     }
 
     // ============================================
-    // createOfficerCard
+    // CREATE OFFICER CARD - .jpg FIRST
     // ============================================
     async function createOfficerCard(o) {
       const card = document.createElement('div'); 
@@ -1668,36 +1548,38 @@
       avatar.className = 'avatar';
       const img = document.createElement('img');
       
+      const extensions = ['.jpg', '.jpeg'];
+      let extIndex = 0;
+      
       img.alt = o.name;
       img.loading = 'lazy';
       img.decoding = 'async';
+      img.width = 200;
+      img.height = 200;
       img.style.objectPosition = `${o.focus?.focusX ?? 50}% ${o.focus?.focusY ?? 50}%`;
       img.style.objectFit = 'cover';
       
-      const paths = getImagePath(o.imageNumber);
-      let currentAttempt = 0;
-      
-      function tryNextPath() {
-        if (currentAttempt < paths.length) {
-          img.src = paths[currentAttempt];
-          currentAttempt++;
+      function tryNext() {
+        if (extIndex < extensions.length) {
+          img.src = getImagePath(o.imageNumber) + extensions[extIndex];
+          extIndex++;
         } else {
-          img.src = `https://picsum.photos/seed/${o.imageNumber}/400/400`;
+          img.src = `https://picsum.photos/seed/${o.imageNumber}/200/200`;
         }
       }
       
       img.onerror = function() {
         this.onerror = null;
-        tryNextPath();
-        if (currentAttempt >= paths.length) {
+        tryNext();
+        if (extIndex >= extensions.length) {
           this.onerror = function() {
             this.onerror = null;
-            this.src = `https://picsum.photos/seed/${o.imageNumber}/400/400`;
+            this.src = `https://picsum.photos/seed/${o.imageNumber}/200/200`;
           };
         }
       };
       
-      tryNextPath();
+      tryNext();
       
       const ring = document.createElement('div'); 
       ring.className = 'avatar-ring';
@@ -1716,6 +1598,9 @@
       return card;
     }
 
+    // ============================================
+    // LOAD PAGE
+    // ============================================
     async function loadPage() {
       if (isLoading) return; 
       isLoading = true;
@@ -1731,8 +1616,7 @@
       
       for (let i = start; i <= end; i++) {
         cards.push(await createPhotoCard(i));
-        const paths = getImagePath(i);
-        currentPageImages.push(paths[0]);
+        currentPageImages.push(getImagePath(i) + '.jpg');
       }
       currentPageStart = start;
       currentPageEnd = end;
@@ -1754,6 +1638,9 @@
       isLoading = false;
     }
 
+    // ============================================
+    // LOAD OFFICERS
+    // ============================================
     async function loadOfficers() { 
       const grid = document.getElementById('officersGrid'); 
       if (!grid) return; 
@@ -1761,6 +1648,9 @@
       for (const o of YOUTH_OFFICERS) grid.appendChild(await createOfficerCard(o)); 
     }
     
+    // ============================================
+    // PAGE NAVIGATION
+    // ============================================
     function nextPage() { 
       if (currentPage < TOTAL_PAGES && !isLoading) { 
         currentPage++; 
@@ -1768,7 +1658,7 @@
         const grid = document.getElementById('galleryGrid');
         if (grid) {
           const rect = grid.getBoundingClientRect();
-          const offset = window.innerWidth < 768 ? 60 : 80;
+          const offset = window.innerWidth < 768 ? 50 : 70;
           window.scrollTo({ top: window.scrollY + rect.top - offset, behavior: 'smooth' });
         }
       } 
@@ -1781,12 +1671,15 @@
         const grid = document.getElementById('galleryGrid');
         if (grid) {
           const rect = grid.getBoundingClientRect();
-          const offset = window.innerWidth < 768 ? 60 : 80;
+          const offset = window.innerWidth < 768 ? 50 : 70;
           window.scrollTo({ top: window.scrollY + rect.top - offset, behavior: 'smooth' });
         }
       } 
     }
     
+    // ============================================
+    // EVENT LISTENERS - ONE DELEGATED CLICK HANDLER
+    // ============================================
     function initMobileMenu() { 
       const btn = document.getElementById('mobileBtn'), menu = document.getElementById('navLinks'); 
       if (btn && menu) { 
@@ -1822,10 +1715,25 @@
     }
     
     function initEventListeners() {
+      // PAGE NAVIGATION
       document.getElementById('prevBtn').addEventListener('click', prevPage); 
-      document.getElementById('nextBtn').addEventListener('click', nextPage); 
+      document.getElementById('nextBtn').addEventListener('click', nextPage);
       
-      // Touch support for mobile
+      // GALLERY CLICK HANDLER - EVENT DELEGATION (ONE LISTENER FOR ALL PHOTOS)
+      const grid = document.getElementById('galleryGrid');
+      if (grid) {
+        grid.addEventListener('click', function(e) {
+          const card = e.target.closest('.photo-card');
+          if (card) {
+            const index = parseInt(card.dataset.index);
+            if (!isNaN(index)) {
+              openLightbox(index);
+            }
+          }
+        });
+      }
+      
+      // Touch swipe support
       let touchStartX = 0;
       let touchEndX = 0;
       document.addEventListener('touchstart', (e) => {
@@ -1835,7 +1743,7 @@
       document.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 50) {
+        if (Math.abs(diff) > 40) {
           if (diff > 0) {
             nextPage();
           } else {
@@ -1858,6 +1766,12 @@
         }
       });
       
+      // Load initial data
+      loadOfficers();
+      loadPage();
+      updatePageIndicator();
+      updatePhotoCountDisplay();
+      
       initMobileMenu(); 
       initScrollTop();
       initNavbarScroll(); 
@@ -1869,11 +1783,14 @@
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         const newIsMobile = window.innerWidth < 768;
-        if (newIsMobile !== (PHOTOS_PER_PAGE === 12)) {
+        if (newIsMobile !== (PHOTOS_PER_PAGE === 8)) {
           location.reload();
         }
       }, 500);
     }, { passive: true });
+
+    // Initialize everything
+    initEventListeners();
   </script>
-</body> 
+</body>
 </html>
