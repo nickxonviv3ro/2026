@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
   <title>Living Testimonies - Youth Ministry | Cinematic Gallery</title>
-  <!-- FAVICON - ADDED -->
-  <link rel="icon" type="image/png" href="img/logo.png">
-  <link rel="apple-touch-icon" href="img/logo.png">
   <meta name="description" content="Youth Ministry Portfolio - Cinematic Style" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -26,11 +23,77 @@
       font-family: "Inter", sans-serif;
       color: rgba(255, 255, 255, 0.85);
       overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* ============================================ */
-    /* LOADING SCREEN WITH LOGO - REFRESHED & VIBRANT */
-    /* ============================================ */
+    /* GLIGHTBOX OVERRIDES */
+    .glightbox-container {
+      z-index: 99999 !important;
+    }
+    
+    .glightbox-container .gslide-description {
+      background: rgba(0,0,0,0.8) !important;
+      backdrop-filter: blur(10px) !important;
+      padding: 15px 20px !important;
+      border-radius: 12px !important;
+      max-width: 90% !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      bottom: 20px !important;
+    }
+    
+    .glightbox-container .gslide-description .gslide-title {
+      color: #ffd700 !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+    }
+    
+    .glightbox-container .gslide-description .gslide-desc {
+      color: rgba(255,255,255,0.8) !important;
+      font-size: 0.85rem !important;
+    }
+    
+    .glightbox-container .gclose,
+    .glightbox-container .gnext,
+    .glightbox-container .gprev {
+      background: rgba(0,0,0,0.6) !important;
+      backdrop-filter: blur(10px) !important;
+      border-radius: 50% !important;
+      width: 45px !important;
+      height: 45px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .glightbox-container .gclose:hover,
+    .glightbox-container .gnext:hover,
+    .glightbox-container .gprev:hover {
+      background: #ffd700 !important;
+      color: #000 !important;
+      transform: scale(1.1) !important;
+    }
+    
+    .glightbox-container .gclose {
+      top: 20px !important;
+      right: 20px !important;
+    }
+    
+    .glightbox-container .gnext {
+      right: 20px !important;
+    }
+    
+    .glightbox-container .gprev {
+      left: 20px !important;
+    }
+    
+    .glightbox-container .gslide-image img {
+      max-height: 80vh !important;
+      object-fit: contain !important;
+      border-radius: 8px !important;
+    }
+
     .loading-screen {
       position: fixed;
       top: 0;
@@ -52,14 +115,12 @@
       z-index: 1;
     }
 
-    /* enhanced logo container with glow and motion */
     .loading-logo {
       width: 100px;
       height: 100px;
       margin: 0 auto 20px;
       animation: floatGlow 2.4s ease-in-out infinite;
       filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
-      transition: filter 0.3s;
     }
 
     .loading-logo img {
@@ -68,7 +129,6 @@
       object-fit: contain;
       display: block;
       filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
-      transition: transform 0.3s;
     }
 
     @keyframes floatGlow {
@@ -94,7 +154,6 @@
       border-radius: 4px;
       overflow: hidden;
       margin: 0 auto;
-      box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
     }
 
     .progress-bar {
@@ -105,7 +164,6 @@
       animation: shimmerProgress 1.8s infinite;
       transition: width 0.25s ease;
       border-radius: 4px;
-      box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
     }
 
     @keyframes shimmerProgress {
@@ -136,9 +194,6 @@
       opacity: 1;
     }
 
-    /* ============================================ */
-    /* COLOR THEME */
-    /* ============================================ */
     :root {
       --cinema-color: #ffd700;
       --gold: #f5c542;
@@ -154,9 +209,6 @@
       --text-dim: #606070;
     }
 
-    /* ============================================ */
-    /* HEADER - TRANSPARENT, FIXED, LIKE ABOUT PAGE */
-    /* ============================================ */
     .navbar {
       position: fixed;
       top: 0;
@@ -195,7 +247,6 @@
       width: 34px;
       height: 34px;
       object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
 
     .navbar .logo h1 {
@@ -259,9 +310,6 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
-    /* ============================================ */
-    /* YOUTH OFFICERS SECTION - FIXED HEIGHT CARDS */
-    /* ============================================ */
     .youth-officers-section { 
       padding: 140px 0 100px; 
       position: relative; 
@@ -335,22 +383,25 @@
       margin-top: 15px; 
     }
 
+    /* ============================================ */
+    /* OFFICERS GRID - FIXED FOR 2 PER ROW ON MOBILE */
+    /* ============================================ */
     .officers-grid { 
-      display: flex; 
-      justify-content: center; 
-      gap: 60px; 
-      flex-wrap: wrap; 
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
       max-width: 1300px; 
       margin: 0 auto; 
       position: relative; 
       z-index: 2; 
+      padding: 0 20px;
     }
 
     .officer-card {
       position: relative;
-      width: 280px;
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
 
     .card-inner {
@@ -374,9 +425,9 @@
 
     .avatar-frame { 
       position: relative; 
-      width: 180px; 
-      height: 180px; 
-      margin: -60px auto 20px; 
+      width: 150px; 
+      height: 150px; 
+      margin: -50px auto 15px; 
       z-index: 10; 
       border-radius: 50%; 
       overflow: hidden; 
@@ -446,18 +497,18 @@
 
     .officer-info {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 15px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .officer-info h3 {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: white;
       transition: color 0.3s;
-      min-height: 42px;
+      min-height: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -468,20 +519,20 @@
     }
 
     .officer-info .role {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: rgba(255, 255, 255, 0.6);
       letter-spacing: 1px;
-      min-height: 30px;
+      min-height: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .officer-info .bio {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       opacity: 0.7;
-      margin-top: 10px;
-      min-height: 60px;
+      margin-top: 8px;
+      min-height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -510,7 +561,7 @@
     }
 
     /* ============================================ */
-    /* CINEMATIC GALLERY WITH SWIPE */
+    /* GALLERY */
     /* ============================================ */
     .gallery {
       padding: 80px 0;
@@ -590,17 +641,18 @@
 
     .gallery-header { 
       text-align: center; 
-      margin-bottom: 50px; 
+      margin-bottom: 40px; 
       position: relative; 
       z-index: 2; 
+      padding: 0 15px;
     }
 
     .gallery-header h2 { 
-      font-size: 2.5rem; 
+      font-size: 2rem; 
       color: white; 
       margin-bottom: 10px; 
       font-family: "Playfair Display", serif; 
-      letter-spacing: 3px; 
+      letter-spacing: 2px; 
     }
 
     .gallery-header h2 span { 
@@ -611,22 +663,22 @@
     .gallery-header p { 
       color: rgba(255, 255, 255, 0.5); 
       font-family: monospace; 
-      letter-spacing: 2px; 
-      font-size: 0.8rem; 
+      letter-spacing: 1px; 
+      font-size: 0.7rem; 
     }
 
     .cinema-lights {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
+      gap: 10px;
+      margin-bottom: 30px;
       position: relative;
       z-index: 2;
     }
 
     .cinema-lights span {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: #ffd700;
       border-radius: 50%;
       animation: pulse 1.5s infinite;
@@ -646,41 +698,33 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-      margin-bottom: 50px;
+      gap: 15px;
+      margin-bottom: 40px;
       transition: opacity 0.25s ease, transform 0.25s ease;
       position: relative;
       z-index: 2;
+      padding: 0 15px;
     }
 
     .photo-card {
       position: relative;
       cursor: pointer;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: 10px;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .photo-card::before, .photo-card::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 0;
-      background: #000;
-      transition: height 0.3s ease;
-      z-index: 1;
-      pointer-events: none;
+    .photo-card:active {
+      transform: scale(0.96);
     }
-    .photo-card::before { top: 0; }
-    .photo-card::after { bottom: 0; }
-    .photo-card:hover::before, .photo-card:hover::after { height: 15%; }
 
     .photo-image {
       position: relative;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: 10px;
+      background: #1a1a2e;
     }
 
     .photo-image img {
@@ -688,7 +732,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: blur(12px) brightness(0.9);
+      filter: blur(8px) brightness(0.8);
       transform: scale(1.05);
       transition: all 0.5s ease;
     }
@@ -696,6 +740,12 @@
     .photo-image img.loaded { 
       filter: blur(0px) brightness(1); 
       transform: scale(1); 
+    }
+
+    .photo-image img.error {
+      object-fit: contain;
+      padding: 20px;
+      filter: blur(0px) brightness(0.5);
     }
 
     .photo-image::after {
@@ -706,7 +756,7 @@
       opacity: 0.6;
       pointer-events: none;
       transition: opacity 0.3s ease;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     .photo-card:hover .photo-image::after { opacity: 0.9; }
@@ -721,13 +771,13 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: 2;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     .photo-card:hover .photo-image .overlay { opacity: 1; }
 
     .overlay-icon {
-      font-size: 48px;
+      font-size: 36px;
       color: #ffd700;
       transform: scale(0.8);
       transition: transform 0.3s ease;
@@ -738,87 +788,46 @@
 
     .cinematic-caption {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 8px;
       font-family: monospace;
     }
 
     .cinematic-caption .scene-number { 
-      font-size: 0.65rem; 
+      font-size: 0.6rem; 
       color: #ffd700; 
-      letter-spacing: 2px; 
+      letter-spacing: 1px; 
     }
 
     .cinematic-caption .caption-text { 
-      font-size: 0.75rem; 
+      font-size: 0.65rem; 
       color: rgba(255, 255, 255, 0.7); 
-      margin-top: 4px; 
+      margin-top: 2px; 
       font-weight: 300; 
-    }
-
-    .skeleton-card {
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(90deg, #1a1a2e 25%, #2a2a3e 50%, #1a1a2e 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 12px;
-    }
-
-    @keyframes shimmer { 
-      0% { background-position: 200% 0; } 
-      100% { background-position: -200% 0; } 
-    }
-
-    /* Swipe Hint */
-    .swipe-hint {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(10px);
-      padding: 8px 20px;
-      border-radius: 40px;
-      color: #ffd700;
-      font-size: 0.8rem;
-      z-index: 10000;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: monospace;
-    }
-
-    .swipe-hint.show {
-      opacity: 1;
-    }
-
-    .swipe-hint i {
-      font-size: 1.2rem;
     }
 
     .pagination {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
-      margin-top: 40px;
+      gap: 15px;
+      margin-top: 30px;
       position: relative;
       z-index: 2;
+      padding: 0 15px;
     }
 
     .page-btn {
       background: transparent;
       border: 2px solid #ffb83b;
       color: #ffb83b;
-      padding: 12px 32px;
+      padding: 10px 24px;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.3s;
-      min-width: 140px;
+      min-width: 100px;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .page-btn:hover:not(:disabled) {
@@ -828,24 +837,29 @@
       box-shadow: 0 5px 15px rgba(255, 184, 59, 0.3);
     }
 
+    .page-btn:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
     .page-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.3;
       cursor: not-allowed;
     }
 
     .page-indicator {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
     }
 
     .page-dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .page-dot.active {
@@ -855,7 +869,7 @@
     }
 
     .page-dot:hover:not(.active) {
-      background: rgba(255, 184, 59, 0.6);
+      background: rgba(255, 184, 59, 0.5);
       transform: scale(1.1);
     }
 
@@ -875,18 +889,18 @@
 
     .footer { 
       text-align: center; 
-      padding: 40px; 
+      padding: 30px 20px; 
       background: #050505; 
       border-top: 1px solid rgba(255, 215, 0, 0.2); 
     }
 
     .scroll-top {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 20px;
+      right: 20px;
       background: #ffb83b;
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -898,6 +912,7 @@
       transition: all 0.3s;
       z-index: 999;
       box-shadow: 0 0 10px rgba(255, 184, 59, 0.5);
+      -webkit-tap-highlight-color: transparent;
     }
 
     .scroll-top.active { 
@@ -910,22 +925,153 @@
       box-shadow: 0 5px 20px rgba(255, 184, 59, 0.6); 
     }
 
-    @media (max-width: 1400px) { 
-      .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } 
+    .scroll-top:active {
+      transform: scale(0.9);
     }
 
-    @media (max-width: 1024px) { 
-      .officers-grid { gap: 40px; } 
-      .gallery-grid { grid-template-columns: repeat(3, 1fr); } 
+    .swipe-hint {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 6px 16px;
+      border-radius: 40px;
+      color: #ffd700;
+      font-size: 0.7rem;
+      z-index: 10000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: monospace;
+      white-space: nowrap;
     }
 
-    @media (max-width: 768px) {
-      .officers-grid { gap: 50px; padding: 20px; }
-      .officer-card { width: 260px; }
-      .section-title h2 { font-size: 1.8rem; }
-      .gallery-header h2 { font-size: 1.8rem; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-      .page-btn { padding: 8px 20px; min-width: 110px; font-size: 0.9rem; }
+    .swipe-hint.show {
+      opacity: 1;
+    }
+
+    .swipe-hint i {
+      font-size: 1rem;
+    }
+
+    /* ============================================ */
+    /* RESPONSIVE */
+    /* ============================================ */
+    
+    /* Desktop */
+    @media (min-width: 1200px) { 
+      .gallery-grid { 
+        grid-template-columns: repeat(5, 1fr); 
+        gap: 20px; 
+      } 
+      .gallery-header h2 { font-size: 2.5rem; }
+    }
+
+    /* Tablets */
+    @media (max-width: 1199px) and (min-width: 768px) { 
+      .gallery-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 18px; 
+      } 
+      .gallery-header h2 { font-size: 2.2rem; }
+      .officers-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 30px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+      /* OFFICERS - 2 per row on mobile */
+      .officers-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+        padding: 0 12px;
+      }
+      
+      .officer-card {
+        width: 100%;
+      }
+      
+      .avatar-frame { 
+        width: 100px; 
+        height: 100px; 
+        margin: -35px auto 10px; 
+      }
+      
+      .officer-info h3 {
+        font-size: 0.9rem;
+        min-height: 28px;
+      }
+      
+      .officer-info .role {
+        font-size: 0.65rem;
+        min-height: 20px;
+      }
+      
+      .officer-info .bio {
+        font-size: 0.6rem;
+        min-height: 35px;
+        margin-top: 5px;
+      }
+      
+      .card-inner {
+        padding: 20px 12px 18px;
+        border-radius: 20px;
+      }
+
+      /* GALLERY - 2 per row on mobile */
+      .gallery-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px; 
+        padding: 0 12px;
+      }
+      
+      .gallery-header h2 { 
+        font-size: 1.5rem; 
+        letter-spacing: 1px;
+      }
+      
+      .gallery-header p { 
+        font-size: 0.6rem; 
+      }
+      
+      .section-title h2 { 
+        font-size: 1.8rem; 
+      }
+      
+      .photo-image .overlay-icon {
+        font-size: 28px;
+      }
+      
+      .cinematic-caption .scene-number { 
+        font-size: 0.5rem; 
+      }
+      
+      .cinematic-caption .caption-text { 
+        font-size: 0.55rem; 
+      }
+      
+      .page-btn { 
+        padding: 8px 16px; 
+        min-width: 80px; 
+        font-size: 0.75rem; 
+        border-width: 1.5px;
+      }
+      
+      .page-dot {
+        width: 6px;
+        height: 6px;
+      }
+      
+      .pagination {
+        gap: 10px;
+      }
       
       .navbar .nav-links {
         display: none;
@@ -935,8 +1081,8 @@
         right: 0;
         background: rgba(8, 8, 12, 0.98);
         flex-direction: column;
-        padding: 18px 24px;
-        gap: 12px;
+        padding: 16px 20px;
+        gap: 10px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.03);
       }
 
@@ -948,36 +1094,192 @@
         display: block;
       }
       
-      .avatar-frame { width: 150px; height: 150px; margin: -50px auto 15px; }
-      .youth-officers-section { background-attachment: scroll; }
+      .navbar .logo h1 {
+        font-size: 1rem;
+      }
+      
+      .navbar .logo img {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .youth-officers-section { 
+        padding: 120px 0 60px; 
+        background-attachment: scroll;
+      }
+      
+      .youth-officers-section::before {
+        background-attachment: scroll;
+      }
       
       .loading-logo {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
       }
+      
       .loading-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
+      
       .progress-container {
-        width: 180px;
+        width: 160px;
       }
 
       .swipe-hint {
-        font-size: 0.65rem;
-        padding: 6px 14px;
-        bottom: 20px;
+        font-size: 0.55rem;
+        padding: 4px 12px;
+        bottom: 15px;
+        gap: 5px;
+      }
+      
+      .swipe-hint i {
+        font-size: 0.8rem;
+      }
+      
+      .scroll-top {
+        width: 36px;
+        height: 36px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.8rem;
+      }
+      
+      .cinema-lights {
+        gap: 8px;
+      }
+      
+      .cinema-lights span {
+        width: 5px;
+        height: 5px;
+      }
+
+      /* Mobile lightbox fixes */
+      .glightbox-container .gclose {
+        top: 10px !important;
+        right: 10px !important;
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 16px !important;
+      }
+      
+      .glightbox-container .gnext {
+        right: 10px !important;
+        width: 35px !important;
+        height: 35px !important;
+      }
+      
+      .glightbox-container .gprev {
+        left: 10px !important;
+        width: 35px !important;
+        height: 35px !important;
+      }
+      
+      .glightbox-container .gslide-image img {
+        max-height: 70vh !important;
+      }
+      
+      .glightbox-container .gslide-description {
+        padding: 10px 15px !important;
+        bottom: 10px !important;
+        max-width: 95% !important;
+      }
+      
+      .glightbox-container .gslide-description .gslide-title {
+        font-size: 0.85rem !important;
+      }
+      
+      .glightbox-container .gslide-description .gslide-desc {
+        font-size: 0.7rem !important;
       }
     }
 
-    @media (max-width: 480px) { 
-      .gallery-grid { grid-template-columns: 1fr; } 
+    /* Very small phones */
+    @media (max-width: 400px) { 
+      .gallery-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; 
+        padding: 0 10px;
+      }
+      
+      .officers-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px;
+        padding: 0 10px;
+      }
+      
+      .avatar-frame { 
+        width: 80px; 
+        height: 80px; 
+        margin: -30px auto 8px; 
+      }
+      
+      .officer-info h3 {
+        font-size: 0.8rem;
+        min-height: 24px;
+      }
+      
+      .officer-info .role {
+        font-size: 0.55rem;
+        min-height: 18px;
+      }
+      
+      .officer-info .bio {
+        font-size: 0.5rem;
+        min-height: 30px;
+      }
+      
+      .card-inner {
+        padding: 15px 8px 14px;
+        border-radius: 16px;
+      }
+      
+      .gallery-header h2 { 
+        font-size: 1.3rem; 
+      }
+      
+      .section-title h2 { 
+        font-size: 1.5rem; 
+      }
+      
+      .page-btn { 
+        padding: 6px 12px; 
+        min-width: 65px; 
+        font-size: 0.65rem; 
+      }
+    }
+
+    /* Landscape phones */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .gallery-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 10px; 
+      }
+      
+      .officers-grid { 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 15px;
+      }
+      
+      .avatar-frame { 
+        width: 80px; 
+        height: 80px; 
+        margin: -30px auto 8px; 
+      }
+      
+      .gallery-header h2 { 
+        font-size: 1.4rem; 
+      }
+      
+      .youth-officers-section { 
+        padding: 100px 0 40px; 
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- LOADING SCREEN WITH LOGO (REFRESHED) -->
+  <!-- LOADING SCREEN -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-content">
       <div class="loading-logo">
@@ -995,7 +1297,6 @@
 
   <!-- MAIN CONTENT -->
   <div class="main-content" id="mainContent">
-    <!-- NAVBAR - TRANSPARENT, FIXED, LIKE ABOUT PAGE -->
     <nav class="navbar" id="navbar">
       <div class="container">
         <a href="index.html" class="logo">
@@ -1054,16 +1355,15 @@
     <a href="#" class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up"></i></a>
   </div>
 
-  <!-- Swipe Hint -->
   <div class="swipe-hint" id="swipeHint">
-    <i class="bi bi-hand-index-thumb"></i> SWIPE LEFT/RIGHT <i class="bi bi-arrow-left-right"></i>
+    <i class="bi bi-hand-index-thumb"></i> SWIPE <i class="bi bi-arrow-left-right"></i>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
 
   <script>
     // ============================================
-    // LOADING SCREEN SIMULATION
+    // LOADING SCREEN
     // ============================================
     let progress = 0;
     const progressBar = document.getElementById('progressBar');
@@ -1077,7 +1377,7 @@
         swipeHint.classList.add('show');
         setTimeout(() => {
           swipeHint.classList.remove('show');
-        }, 4000);
+        }, 3000);
       }
     }
 
@@ -1101,14 +1401,14 @@
           updatePhotoCountDisplay();
           initEventListeners();
           showSwipeHint();
-        }, 500);
+        }, 400);
       }
       progressBar.style.width = progress + '%';
       loadingPercent.textContent = Math.floor(progress) + '%';
-    }, 200);
+    }, 150);
 
     // ============================================
-    // SPARKLING STARS GENERATOR
+    // STARS
     // ============================================
     function initStars() {
       const container = document.getElementById('starsContainer');
@@ -1116,19 +1416,24 @@
       
       container.innerHTML = '';
       
-      for (let i = 0; i < 150; i++) {
+      const isMobile = window.innerWidth < 768;
+      const starCount = isMobile ? 60 : 150;
+      const sparkleCount = isMobile ? 20 : 50;
+      const shootingStarCount = isMobile ? 3 : 8;
+      
+      for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
-        star.style.width = Math.random() * 3 + 1 + 'px';
+        star.style.width = Math.random() * 2 + 1 + 'px';
         star.style.height = star.style.width;
         star.style.animationDelay = Math.random() * 5 + 's';
         star.style.animationDuration = Math.random() * 3 + 2 + 's';
         container.appendChild(star);
       }
       
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < sparkleCount; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
         sparkle.style.left = Math.random() * 100 + '%';
@@ -1138,24 +1443,25 @@
         container.appendChild(sparkle);
       }
       
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < shootingStarCount; i++) {
         const shootingStar = document.createElement('div');
         shootingStar.className = 'shooting-star';
         shootingStar.style.left = Math.random() * 80 + 10 + '%';
         shootingStar.style.top = Math.random() * 50 + '%';
         shootingStar.style.animationDelay = Math.random() * 10 + 's';
         shootingStar.style.animationDuration = Math.random() * 3 + 2 + 's';
-        shootingStar.style.width = Math.random() * 60 + 30 + 'px';
+        shootingStar.style.width = Math.random() * 40 + 20 + 'px';
         shootingStar.style.height = '2px';
         container.appendChild(shootingStar);
       }
     }
 
     // ============================================
-    // SETTINGS - SUPPORTS BOTH .jpg AND .jpeg
+    // SETTINGS
     // ============================================
+    const isMobileDevice = window.innerWidth < 768;
+    const PHOTOS_PER_PAGE = isMobileDevice ? 12 : 30;
     const TOTAL_GALLERY_PHOTOS = 120;
-    const PHOTOS_PER_PAGE = 30;
     
     const CAPTIONS = [
       "A Moment of Worship 🙏", "A Moment of Fellowship 🤝", "A Moment of Joy 😊",
@@ -1181,12 +1487,11 @@
 
     const TOTAL_PAGES = Math.ceil(TOTAL_GALLERY_PHOTOS / PHOTOS_PER_PAGE);
     let currentPage = 1, isLoading = false, lightbox = null;
-    const COMPRESSION = { maxWidth: 800, maxHeight: 800, quality: 0.7 };
 
     function updatePhotoCountDisplay() {
       const display = document.getElementById('photoCountDisplay');
       if (display) {
-        display.innerHTML = `${TOTAL_GALLERY_PHOTOS} breathtaking scenes captured | Page ${currentPage} of ${TOTAL_PAGES}`;
+        display.innerHTML = `${TOTAL_GALLERY_PHOTOS} scenes | Page ${currentPage} of ${TOTAL_PAGES}`;
       }
     }
 
@@ -1201,7 +1506,11 @@
       const ind = document.getElementById('pageIndicator'); 
       if (!ind) return;
       ind.innerHTML = '';
-      for (let i = 1; i <= TOTAL_PAGES; i++) {
+      const maxDots = isMobileDevice ? Math.min(TOTAL_PAGES, 5) : TOTAL_PAGES;
+      const startDot = isMobileDevice ? Math.max(1, currentPage - 2) : 1;
+      const endDot = isMobileDevice ? Math.min(TOTAL_PAGES, startDot + 4) : TOTAL_PAGES;
+      
+      for (let i = startDot; i <= endDot; i++) {
         const d = document.createElement('div'); 
         d.className = 'page-dot' + (i === currentPage ? ' active' : '');
         d.addEventListener('click', () => {
@@ -1213,31 +1522,21 @@
         ind.appendChild(d);
       }
     }
-    
-    async function compressImage(url) { 
-      return new Promise(r => {
-        const img = new Image(); 
-        img.crossOrigin = "Anonymous"; 
-        img.onload = () => {
-          let w = img.width, h = img.height; 
-          if (w > COMPRESSION.maxWidth || h > COMPRESSION.maxHeight) {
-            const ratio = Math.min(COMPRESSION.maxWidth / w, COMPRESSION.maxHeight / h);
-            w *= ratio; 
-            h *= ratio;
-          } 
-          const c = document.createElement('canvas'); 
-          c.width = w; 
-          c.height = h; 
-          c.getContext('2d').drawImage(img, 0, 0, w, h); 
-          r(c.toDataURL('image/jpeg', COMPRESSION.quality));
-        }; 
-        img.onerror = () => r(null); 
-        img.src = url;
-      });
-    }
-    
+
     // ============================================
-    // createPhotoCard - Supports both .jpg and .jpeg
+    // IMAGE PATH HELPER
+    // ============================================
+    function getImagePath(n) {
+      return [
+        `img/gallery/${n}.jpeg`,
+        `img/gallery/${n}.jpg`,
+        `img/gallery/${n}.JPG`,
+        `img/gallery/${n}.JPEG`
+      ];
+    }
+
+    // ============================================
+    // createPhotoCard
     // ============================================
     async function createPhotoCard(n) {
       const card = document.createElement('div'); 
@@ -1246,68 +1545,117 @@
       imgDiv.className = 'photo-image';
       const img = document.createElement('img'); 
       img.alt = `Photo ${n}`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      
       const overlay = document.createElement('div'); 
       overlay.className = 'overlay'; 
       overlay.innerHTML = '<i class="bi bi-play-circle overlay-icon"></i>';
       
-      // Try .jpeg first, then .jpg
-      const origPath = `img/gallery/${n}.jpeg`;
-      const fallbackPath = `img/gallery/${n}.jpg`;
+      const paths = getImagePath(n);
+      let currentAttempt = 0;
       
-      let compressed = await compressImage(origPath);
-      if (!compressed) {
-        compressed = await compressImage(fallbackPath);
+      function tryNextPath() {
+        if (currentAttempt < paths.length) {
+          img.src = paths[currentAttempt];
+          currentAttempt++;
+        } else {
+          img.src = `https://picsum.photos/seed/${n}/400/225`;
+          img.classList.add('error');
+        }
       }
       
-      img.src = compressed || `https://picsum.photos/id/${n}/800/800`;
+      img.onerror = function() {
+        this.onerror = null;
+        tryNextPath();
+        if (currentAttempt >= paths.length) {
+          this.onerror = function() {
+            this.onerror = null;
+            this.src = `https://picsum.photos/seed/${n}/400/225`;
+            this.classList.add('error');
+          };
+        }
+      };
+      
       img.onload = () => { 
         requestAnimationFrame(() => { 
           requestAnimationFrame(() => img.classList.add('loaded')); 
         }); 
       };
-      img.onerror = () => { 
-        img.src = `https://picsum.photos/id/${n % 100}/800/800`; 
-      };
+      
+      tryNextPath();
+      
       imgDiv.appendChild(img); 
       imgDiv.appendChild(overlay);
+      
       const captionDiv = document.createElement('div'); 
       captionDiv.className = 'cinematic-caption';
       captionDiv.innerHTML = `<div class="scene-number">🎬 SCENE ${String(n).padStart(3, '0')}</div><div class="caption-text">${getCaption(n)}</div>`;
       card.appendChild(imgDiv); 
       card.appendChild(captionDiv);
       
-      card.addEventListener('click', () => { 
-        if (lightbox) lightbox.close(); 
-        
-        const { start, end } = getPageRange();
-        const allImages = [];
-        for (let i = start; i <= end; i++) {
-          allImages.push({ href: `img/gallery/${i}.jpeg` });
-        }
-        
-        const currentIndex = n - start;
-        
-        lightbox = GLightbox({ 
-          elements: allImages,
-          startAt: currentIndex,
-          touchNavigation: true,
-          loop: true,
-          zoomable: true,
-          draggable: true,
-          swipeTolerance: 50,
-          width: '90vw',
-          height: '90vh',
-          openEffect: 'zoom',
-          closeEffect: 'zoom'
-        }); 
-        lightbox.open(); 
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(n);
       });
       
       return card;
     }
 
     // ============================================
-    // createOfficerCard - Supports both .jpg and .jpeg
+    // LIGHTBOX FUNCTION
+    // ============================================
+    function openLightbox(n) {
+      if (lightbox) {
+        lightbox.close();
+        lightbox = null;
+      }
+      
+      const { start, end } = getPageRange();
+      const allImages = [];
+      
+      for (let i = start; i <= end; i++) {
+        const imgPaths = getImagePath(i);
+        allImages.push({ 
+          href: imgPaths[0],
+          type: 'image/jpeg',
+          title: `SCENE ${String(i).padStart(3, '0')} - ${getCaption(i)}`,
+          description: `📸 Living Testimonies - Youth Ministry`
+        });
+      }
+      
+      const currentIndex = n - start;
+      
+      lightbox = GLightbox({
+        elements: allImages,
+        startAt: currentIndex,
+        touchNavigation: true,
+        loop: true,
+        zoomable: true,
+        draggable: true,
+        swipeTolerance: 50,
+        width: '95vw',
+        height: '95vh',
+        openEffect: 'zoom',
+        closeEffect: 'zoom',
+        slideEffect: 'fade',
+        moreText: 'Read more',
+        moreLength: 60,
+        closeOnOutsideClick: true,
+        onOpen: function() {
+          document.body.style.overflow = 'hidden';
+        },
+        onClose: function() {
+          document.body.style.overflow = '';
+          lightbox = null;
+        }
+      });
+      
+      lightbox.open();
+    }
+
+    // ============================================
+    // createOfficerCard
     // ============================================
     async function createOfficerCard(o) {
       const card = document.createElement('div'); 
@@ -1320,19 +1668,36 @@
       avatar.className = 'avatar';
       const img = document.createElement('img');
       
-      // Try .jpeg first, then .jpg
-      const origPath = `img/gallery/${o.imageNumber}.jpeg`;
-      const fallbackPath = `img/gallery/${o.imageNumber}.jpg`;
-      
-      let compressed = await compressImage(origPath);
-      if (!compressed) {
-        compressed = await compressImage(fallbackPath);
-      }
-      
-      img.src = compressed || `https://picsum.photos/id/${(o.imageNumber % 100) + 1}/400/400`;
       img.alt = o.name;
+      img.loading = 'lazy';
+      img.decoding = 'async';
       img.style.objectPosition = `${o.focus?.focusX ?? 50}% ${o.focus?.focusY ?? 50}%`;
       img.style.objectFit = 'cover';
+      
+      const paths = getImagePath(o.imageNumber);
+      let currentAttempt = 0;
+      
+      function tryNextPath() {
+        if (currentAttempt < paths.length) {
+          img.src = paths[currentAttempt];
+          currentAttempt++;
+        } else {
+          img.src = `https://picsum.photos/seed/${o.imageNumber}/400/400`;
+        }
+      }
+      
+      img.onerror = function() {
+        this.onerror = null;
+        tryNextPath();
+        if (currentAttempt >= paths.length) {
+          this.onerror = function() {
+            this.onerror = null;
+            this.src = `https://picsum.photos/seed/${o.imageNumber}/400/400`;
+          };
+        }
+      };
+      
+      tryNextPath();
       
       const ring = document.createElement('div'); 
       ring.className = 'avatar-ring';
@@ -1359,14 +1724,15 @@
       next.disabled = true;
       grid.classList.remove('page-visible', 'page-entering'); 
       grid.classList.add('page-leaving');
-      await new Promise(r => setTimeout(r, 260));
+      await new Promise(r => setTimeout(r, 200));
       const { start, end } = getPageRange(); 
       const cards = [];
       currentPageImages = [];
       
       for (let i = start; i <= end; i++) {
         cards.push(await createPhotoCard(i));
-        currentPageImages.push(`img/gallery/${i}.jpeg`);
+        const paths = getImagePath(i);
+        currentPageImages.push(paths[0]);
       }
       currentPageStart = start;
       currentPageEnd = end;
@@ -1399,7 +1765,12 @@
       if (currentPage < TOTAL_PAGES && !isLoading) { 
         currentPage++; 
         loadPage(); 
-        window.scrollTo({ top: document.getElementById('galleryGrid').offsetTop - 80, behavior: 'smooth' }); 
+        const grid = document.getElementById('galleryGrid');
+        if (grid) {
+          const rect = grid.getBoundingClientRect();
+          const offset = window.innerWidth < 768 ? 60 : 80;
+          window.scrollTo({ top: window.scrollY + rect.top - offset, behavior: 'smooth' });
+        }
       } 
     }
     
@@ -1407,28 +1778,38 @@
       if (currentPage > 1 && !isLoading) { 
         currentPage--; 
         loadPage(); 
-        window.scrollTo({ top: document.getElementById('galleryGrid').offsetTop - 80, behavior: 'smooth' }); 
+        const grid = document.getElementById('galleryGrid');
+        if (grid) {
+          const rect = grid.getBoundingClientRect();
+          const offset = window.innerWidth < 768 ? 60 : 80;
+          window.scrollTo({ top: window.scrollY + rect.top - offset, behavior: 'smooth' });
+        }
       } 
     }
     
     function initMobileMenu() { 
       const btn = document.getElementById('mobileBtn'), menu = document.getElementById('navLinks'); 
       if (btn && menu) { 
-        btn.addEventListener('click', () => menu.classList.toggle('active')); 
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menu.classList.toggle('active');
+        }); 
         menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => menu.classList.remove('active'))); 
+        document.addEventListener('click', (e) => {
+          if (!menu.contains(e.target) && e.target !== btn) {
+            menu.classList.remove('active');
+          }
+        });
       } 
     }
     
     function initScrollTop() { 
       const st = document.getElementById('scrollTop'); 
       if (!st) return; 
-      window.addEventListener('scroll', () => st.classList.toggle('active', window.scrollY > 300)); 
+      window.addEventListener('scroll', () => st.classList.toggle('active', window.scrollY > 300), { passive: true }); 
       st.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }); 
     }
 
-    // ============================================
-    // NAVBAR SCROLL EFFECT (like about page)
-    // ============================================
     function initNavbarScroll() {
       const navbar = document.getElementById('navbar');
       window.addEventListener('scroll', function() {
@@ -1437,16 +1818,62 @@
         } else {
           navbar.classList.remove('scrolled');
         }
-      });
+      }, { passive: true });
     }
     
     function initEventListeners() {
       document.getElementById('prevBtn').addEventListener('click', prevPage); 
       document.getElementById('nextBtn').addEventListener('click', nextPage); 
+      
+      // Touch support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      
+      document.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            nextPage();
+          } else {
+            prevPage();
+          }
+        }
+      }, { passive: true });
+      
+      // Keyboard support
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          if (!isLoading) nextPage();
+        } else if (e.key === 'ArrowLeft') {
+          if (!isLoading) prevPage();
+        } else if (e.key === 'Escape') {
+          if (lightbox) {
+            lightbox.close();
+            lightbox = null;
+          }
+        }
+      });
+      
       initMobileMenu(); 
       initScrollTop();
       initNavbarScroll(); 
     }
+
+    // Handle resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const newIsMobile = window.innerWidth < 768;
+        if (newIsMobile !== (PHOTOS_PER_PAGE === 12)) {
+          location.reload();
+        }
+      }, 500);
+    }, { passive: true });
   </script>
 </body> 
 </html>

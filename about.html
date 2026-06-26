@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Youth Ministry - Testimonials</title>
-  <meta name="description" content="Youth Ministry Testimonials with modal">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <title>Youth Ministry - About | Living Testimonies</title>
+  <meta name="description" content="Youth Ministry About Page">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- CSS - Using CDN -->
+  <!-- CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -31,6 +31,7 @@
       font-family: "Inter", sans-serif;
       color: #e8e8ea;
       overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
 
     ::selection {
@@ -53,44 +54,6 @@
       --text-white: #f0f0f2;
       --text-gray: #a0a0aa;
       --text-dim: #606070;
-    }
-
-    /* ============================================ */
-    /* ANIMATIONS FOR CARDS - STAGGERED FADE IN */
-    /* ============================================ */
-    @keyframes fadeInUpStagger {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .testimonial-card {
-      opacity: 0;
-      animation: fadeInUpStagger 0.8s ease forwards;
-    }
-
-    .testimonial-card:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-    .testimonial-card:nth-child(2) {
-      animation-delay: 0.15s;
-    }
-    .testimonial-card:nth-child(3) {
-      animation-delay: 0.2s;
-    }
-    .testimonial-card:nth-child(4) {
-      animation-delay: 0.25s;
-    }
-    .testimonial-card:nth-child(5) {
-      animation-delay: 0.3s;
-    }
-    .testimonial-card:nth-child(6) {
-      animation-delay: 0.35s;
     }
 
     /* ============================================ */
@@ -198,7 +161,7 @@
     /* HERO */
     /* ============================================ */
     .hero {
-      min-height: 80vh;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -295,7 +258,7 @@
     }
 
     /* ============================================ */
-    /* TESTIMONIALS - 6 CARDS */
+    /* TESTIMONIALS - 3 PER ROW ON DESKTOP */
     /* ============================================ */
     .testimonials {
       padding: 80px 0 100px;
@@ -343,8 +306,8 @@
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      max-width: 1400px;
+      gap: 20px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -361,7 +324,15 @@
       position: relative;
       opacity: 0;
       animation: fadeInUpStagger 0.8s ease forwards;
+      min-height: 200px;
     }
+
+    .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+    .testimonial-card:nth-child(2) { animation-delay: 0.15s; }
+    .testimonial-card:nth-child(3) { animation-delay: 0.2s; }
+    .testimonial-card:nth-child(4) { animation-delay: 0.25s; }
+    .testimonial-card:nth-child(5) { animation-delay: 0.3s; }
+    .testimonial-card:nth-child(6) { animation-delay: 0.35s; }
 
     .testimonial-card:hover {
       transform: translateY(-4px);
@@ -474,8 +445,19 @@
       margin: 0;
     }
 
+    @keyframes fadeInUpStagger {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* ============================================ */
-    /* MODAL - WITH LARGE IMAGE ON LEFT */
+    /* MODAL - FIXED ARROWS FOR MOBILE */
     /* ============================================ */
     .modal-overlay {
       position: fixed;
@@ -514,7 +496,6 @@
       transform: scale(1) translateY(0);
     }
 
-    /* Navigation Arrows */
     .modal-nav {
       position: absolute;
       top: 50%;
@@ -545,11 +526,11 @@
     }
 
     .modal-nav.prev {
-      left: -24px;
+      left: 12px;
     }
 
     .modal-nav.next {
-      right: -24px;
+      right: 12px;
     }
 
     .modal-nav.disabled {
@@ -597,13 +578,11 @@
       min-height: 450px;
     }
 
-    /* LEFT SIDE - LARGE IMAGE - MOVED DOWN */
     .modal-image {
       flex: 1;
       position: relative;
       background-size: cover;
       background-position: center 25%;
-      /* ← MOVED DOWN - shows more of the top */
       min-height: 400px;
       background-color: #1a1a24;
       overflow: hidden;
@@ -675,7 +654,6 @@
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    /* RIGHT SIDE - TEXT CONTENT */
     .modal-body {
       flex: 0.9;
       padding: 36px 38px;
@@ -721,21 +699,11 @@
       animation: fadeInText 0.5s forwards;
     }
 
-    .modal-body .text-content p:nth-child(1) {
-      animation-delay: 0.05s;
-    }
-    .modal-body .text-content p:nth-child(2) {
-      animation-delay: 0.12s;
-    }
-    .modal-body .text-content p:nth-child(3) {
-      animation-delay: 0.19s;
-    }
-    .modal-body .text-content p:nth-child(4) {
-      animation-delay: 0.26s;
-    }
-    .modal-body .text-content p:nth-child(5) {
-      animation-delay: 0.33s;
-    }
+    .modal-body .text-content p:nth-child(1) { animation-delay: 0.05s; }
+    .modal-body .text-content p:nth-child(2) { animation-delay: 0.12s; }
+    .modal-body .text-content p:nth-child(3) { animation-delay: 0.19s; }
+    .modal-body .text-content p:nth-child(4) { animation-delay: 0.26s; }
+    .modal-body .text-content p:nth-child(5) { animation-delay: 0.33s; }
 
     @keyframes fadeInText {
       to {
@@ -763,12 +731,8 @@
     }
 
     @keyframes fillProgress {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     /* ============================================ */
@@ -822,12 +786,34 @@
     }
 
     /* ============================================ */
-    /* RESPONSIVE */
+    /* RESPONSIVE - 3 PER ROW DESKTOP, 2 PER ROW TABLET, 1 PER ROW MOBILE */
     /* ============================================ */
-    @media (max-width: 992px) {
+    
+    /* Desktop: 3 columns */
+    @media (min-width: 992px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1100px;
+      }
+    }
+
+    /* Tablet: 2 columns */
+    @media (max-width: 991px) and (min-width: 576px) {
       .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+        max-width: 700px;
+      }
+    }
+
+    /* Mobile: 1 column */
+    @media (max-width: 575px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        max-width: 420px;
+        padding: 0 16px;
       }
     }
 
@@ -854,7 +840,7 @@
       }
 
       .hero {
-        min-height: 65vh;
+        min-height: 60vh;
         background-attachment: scroll;
         padding: 100px 20px 50px;
       }
@@ -871,12 +857,6 @@
         padding: 50px 0 70px;
       }
 
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        max-width: 420px;
-      }
-
       .section-head h2 {
         font-size: 2rem;
       }
@@ -890,7 +870,6 @@
         min-height: 250px;
         flex: none;
         background-position: center 25%;
-        /* Keep the down position on mobile too */
       }
 
       .modal-body {
@@ -918,18 +897,18 @@
         font-size: 0.88rem;
       }
 
+      .modal-nav {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+      }
+
       .modal-nav.prev {
-        left: 10px;
+        left: 8px;
       }
 
       .modal-nav.next {
-        right: 10px;
-      }
-
-      .modal-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+        right: 8px;
       }
     }
 
@@ -945,6 +924,7 @@
 
       .testimonial-card {
         padding: 18px 16px;
+        min-height: 170px;
       }
 
       .section-head h2 {
@@ -969,17 +949,34 @@
       }
 
       .modal-nav {
-        width: 34px;
-        height: 34px;
-        font-size: 0.9rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
       }
 
       .modal-nav.prev {
-        left: 6px;
+        left: 5px;
       }
 
       .modal-nav.next {
-        right: 6px;
+        right: 5px;
+      }
+    }
+
+    @media (max-width: 767px) and (orientation: landscape) {
+      .hero {
+        min-height: 80vh;
+        padding: 80px 15px 40px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 600px;
       }
     }
   </style>
@@ -1007,7 +1004,8 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="container">
-      <h1>About <em>Us</em></h1>
+      <span class="tag">✦ About Us</span>
+      <h1>Living <em>Testimonies</em></h1>
       <p>This is about the moments and memories we shared — lives heard and testimonies told. You have a voice, and you are heard, because we care about you.</p>
     </div>
   </section>
@@ -1022,7 +1020,7 @@
       </div>
 
       <div class="testimonials-grid" id="testimonialsGrid">
-        <!-- Cards will be generated by JavaScript -->
+        <!-- Cards generated by JavaScript -->
       </div>
     </div>
   </section>
@@ -1037,7 +1035,7 @@
   <!-- SCROLL TOP -->
   <a href="#" class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up"></i></a>
 
-  <!-- MODAL WITH LARGE IMAGE ON LEFT -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-container">
       <button class="modal-close" id="modalClose">
@@ -1052,7 +1050,6 @@
       </button>
 
       <div class="modal-layout">
-        <!-- LEFT: Large Image -->
         <div class="modal-image" id="modalImage">
           <div class="image-placeholder" id="modalPlaceholder"></div>
           <div class="image-overlay"></div>
@@ -1068,7 +1065,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: Text Content -->
         <div class="modal-body">
           <div class="modal-progress"><span></span></div>
           <span class="modal-badge">Living Testimony</span>
@@ -1148,7 +1144,7 @@
       name: "Nickxon Vivero",
       role: "Former Youth President",
       bio: "Philippians 4:13 - I can do all things through Christ who strengthens me",
-      preview: "Before going to college, I was uncertain if I would even get into the school I wanted. I did not pass my entrance exams, and many doubts and worries came to my mind. I also did not know what course to take.",
+      preview: "Before going to college, I was uncertain if I would even get into the school I wanted.",
       fullStory: [
         "Testimony: God's Faithfulness in My College Journey",
         "Hello, how are you? I hope you are doing well and blessed. I just want to share with you how good the Lord is in my life.",
@@ -1168,8 +1164,8 @@
       initial: "S",
       name: "Sit Ador",
       role: "Former Youth Vice President",
-      bio: "Psalm 23:4 - Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
-      preview: "My life is a testimony of God's grace. I came from a broken family, lost my father before high school, and endured many hardships. ",
+      bio: "Psalm 23:4 - Yea, though I walk through the valley of the shadow of death, I will fear no evil",
+      preview: "My life is a testimony of God's grace. I came from a broken family...",
       fullStory: [
         "My life is a testimony of God's grace. I came from a broken family, lost my father before high school, and endured many hardships. There were days when I collected plastic bottles, asked for spare coins, and even relied on leftover food just to survive. I also worked as a construction worker and a pedicab driver while studying. Before I came to know Christ, I was called an addict, a thief, and someone with no future.",
         "But God had a different plan. When I surrendered my life to Jesus, He gave me purpose, hope, and a new beginning. He proved that my past did not define my future.",
@@ -1232,8 +1228,8 @@
       initial: "J",
       name: "Julie Anne Tabelog",
       role: "Former Youth Treasurer",
-      bio: "Colossians 3:23 - And whatsoever ye do, do it heartily, as to the Lord, and not unto men",
-      preview: "Hindi ko batid kung saan magsisimula sa pagbabahagi ng aking karanasan o 'testimony' na magiging isang encouragement",
+      bio: "Colossians 3:23 - And whatsoever ye do, do it heartily, as to the Lord",
+      preview: "Hindi ko batid kung saan magsisimula sa pagbabahagi ng aking karanasan...",
       fullStory: [
         "Hindi ko batid kung saan magsisimula sa pagbabahagi ng aking karanasan o 'testimony' na magiging isang \"encouragement\" sa mga youth na magbabasa nito, ngunit aking naalala noong nasa sekondarya pa lamang ako mayroon nang mga planong nais kong mangyari sa akin bilang isang estudyanteng papasok sa kolehiyo.",
         "Maraming pagdududa, pangangamba, at ramdam ko ang takot sapagkat, kilala ko naman ang aking sariling hindi magaling at di-katalinuhan, kaya naman mayroon akong isang panalangin sa Panginoon, sabi ko 'Lord, 'wag mo sana akong pahintulutang malayo at mawalan ng oras Sayo at igugol ang aking sarili sa pag-aaral para lamang makuha ang magandang grado at makapagtapos, dahil alam kong walang saysay lahat ng bagay dito sa mundo.",
@@ -1250,8 +1246,8 @@
       imageNumber: 955,
       initial: "A",
       name: "Angielica Peñeda",
-      role: " Former Youth Member",
-      preview: "Usa Ako ha kadamo nga tawo nga nag hingyap Maka skwela ngan usa ghapon Ako nga naningkamot para matuman ito na Akon hingyap.",
+      role: "Former Youth Member",
+      preview: "Usa Ako ha kadamo nga tawo nga nag hingyap Maka skwela...",
       fullStory: [
         "Usa Ako ha kadamo nga tawo nga nag hingyap Maka skwela ngan usa ghapon Ako nga naningkamot para matuman ito na Akon hingyap.",
         "Dri man masayon damo man an Akon pinag agi-an mayda man mga panahon nga gusto Kona umundang pero nag padayon Ako tungod para ha Akon kalugaringon ngan gusto ko bumalos ha Akon ginikanan.",
@@ -1268,7 +1264,7 @@
       initial: "L",
       name: "Leymar Arpon",
       role: "Former Youth Member",
-      preview: "Going to college as an underprivileged student is a complete rollercoaster, but hardship is exactly where my dreams were born.",
+      preview: "Going to college as an underprivileged student is a complete rollercoaster...",
       fullStory: [
         "Going to college as an underprivileged student is a complete rollercoaster, but hardship is exactly where my dreams were born.",
         "Arriving in Tacloban City full of fears, sumulod ha LNU as Science Major. It was a path I never planned for, I often found myself facing harsh judgments, self doubt, and failure.",
@@ -1314,7 +1310,7 @@
     });
 
     // ============================================
-    // MODAL LOGIC - WITH LARGE IMAGE
+    // MODAL LOGIC
     // ============================================
     var currentIndex = 0;
     var modalOverlay = document.getElementById('modalOverlay');
@@ -1329,7 +1325,6 @@
     var modalRole = document.getElementById('modalRole');
     var modalText = document.getElementById('modalText');
 
-    // Open modal on card click
     document.querySelectorAll('.testimonial-card').forEach(function(card) {
       card.addEventListener('click', function() {
         currentIndex = parseInt(this.dataset.index);
@@ -1344,30 +1339,26 @@
       var imgPath = getImagePath(data.imageNumber);
       var imgPathFallback = getImagePathFallback(data.imageNumber);
 
-      // Set large background image on the left - position is already moved down via CSS (center 25%)
       modalImage.style.backgroundImage = 'url(' + imgPath + ')';
       modalImage.style.backgroundSize = 'cover';
-      modalImage.style.backgroundPosition = 'center 25%'; // ← MOVED DOWN
-        
-      // If image fails, try fallback
+      modalImage.style.backgroundPosition = 'center 25%';
+
       var imgTest = new Image();
       imgTest.onload = function() {
         modalImage.style.backgroundImage = 'url(' + imgPath + ')';
-        modalImage.style.backgroundPosition = 'center 25%'; // ← Keep the down position
+        modalImage.style.backgroundPosition = 'center 25%';
       };
       imgTest.onerror = function() {
         modalImage.style.backgroundImage = 'url(' + imgPathFallback + ')';
-        modalImage.style.backgroundPosition = 'center 25%'; // ← Keep the down position
+        modalImage.style.backgroundPosition = 'center 25%';
       };
       imgTest.src = imgPath;
 
-      // Set placeholder text (shown if image doesn't load)
       modalPlaceholder.textContent = data.initial;
 
-      // Set avatar circle with initial and image
       modalInitialDisplay.textContent = data.initial;
       modalInitialDisplay.style.display = 'block';
-      
+
       modalPersonImg.src = imgPath;
       modalPersonImg.style.display = 'none';
       modalPersonImg.onload = function() {
@@ -1387,11 +1378,9 @@
         };
       };
 
-      // Set person details
       modalName.textContent = data.name;
       modalRole.textContent = data.role;
 
-      // Build full story paragraphs
       var html = '';
       if (data.bio) {
         html += '<p><strong>' + data.bio + '</strong></p>';
@@ -1401,13 +1390,11 @@
       });
       modalText.innerHTML = html;
 
-      // Reset progress bar animation
       var progressBar = document.querySelector('.modal-progress span');
       progressBar.style.animation = 'none';
       void progressBar.offsetWidth;
       progressBar.style.animation = 'fillProgress 4s linear forwards';
 
-      // Show modal
       modalOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
       updateArrows();
@@ -1437,7 +1424,6 @@
       }
     }
 
-    // Event listeners
     modalClose.addEventListener('click', closeModal);
     modalPrev.addEventListener('click', prevTestimonial);
     modalNext.addEventListener('click', nextTestimonial);
