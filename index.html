@@ -12,9 +12,6 @@
   
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  
-  <!-- GLightbox -->
-  <link href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" rel="stylesheet" />
 
   <style>
     * {
@@ -31,75 +28,104 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* GLIGHTBOX OVERRIDES */
-    .glightbox-container {
-      z-index: 99999 !important;
-    }
-    
-    .glightbox-container .gslide-description {
-      background: rgba(0,0,0,0.8) !important;
-      backdrop-filter: blur(10px) !important;
-      padding: 10px 15px !important;
-      border-radius: 8px !important;
-      max-width: 90% !important;
-      margin: 0 auto !important;
-      position: relative !important;
-      bottom: 10px !important;
-    }
-    
-    .glightbox-container .gslide-description .gslide-title {
-      color: #ffd700 !important;
-      font-size: 0.85rem !important;
-      font-weight: 600 !important;
-    }
-    
-    .glightbox-container .gslide-description .gslide-desc {
-      color: rgba(255,255,255,0.7) !important;
-      font-size: 0.75rem !important;
-    }
-    
-    .glightbox-container .gclose,
-    .glightbox-container .gnext,
-    .glightbox-container .gprev {
-      background: rgba(0,0,0,0.5) !important;
-      backdrop-filter: blur(8px) !important;
-      border-radius: 50% !important;
-      width: 36px !important;
-      height: 36px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      transition: all 0.3s ease !important;
-    }
-    
-    .glightbox-container .gclose:hover,
-    .glightbox-container .gnext:hover,
-    .glightbox-container .gprev:hover {
-      background: #ffd700 !important;
-      color: #000 !important;
-      transform: scale(1.1) !important;
-    }
-    
-    .glightbox-container .gclose {
-      top: 12px !important;
-      right: 12px !important;
-    }
-    
-    .glightbox-container .gnext {
-      right: 12px !important;
-    }
-    
-    .glightbox-container .gprev {
-      left: 12px !important;
-    }
-    
-    .glightbox-container .gslide-image img {
-      max-height: 80vh !important;
-      object-fit: contain !important;
-      border-radius: 6px !important;
+    /* ============================================ */
+    /* CUSTOM LIGHTBOX - SIMPLE, NO SWIPE */
+    /* ============================================ */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(20px);
+      z-index: 99999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
+    .lightbox-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: scale(0.95);
+      transition: transform 0.4s ease;
+    }
+
+    .lightbox-overlay.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-content img {
+      max-width: 90vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lightbox-close:hover {
+      background: #ffd700;
+      color: #000;
+      transform: rotate(90deg);
+      border-color: #ffd700;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      font-family: monospace;
+      text-align: center;
+      white-space: nowrap;
+      background: rgba(0,0,0,0.6);
+      padding: 6px 16px;
+      border-radius: 6px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,215,0,0.1);
+    }
+
+    .lightbox-caption .title {
+      color: #ffd700;
+      font-weight: 600;
+    }
+
+    /* ============================================ */
     /* LOADING SCREEN */
+    /* ============================================ */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -281,28 +307,28 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
-    /* YOUTH OFFICERS */
+    /* YOUTH OFFICERS - FIXED BACKGROUND */
     .youth-officers-section { 
-      padding: 100px 0 60px; 
+      padding: 100px 100px; 
       position: relative; 
       overflow: hidden;
       isolation: isolate;
     }
 
     .youth-officers-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url("img/Background.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      z-index: -2;
-    }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("img/Background.png");
+  background-size: cover;
+  background-position: center 70%;  /* ← Adjust this value */
+  background-repeat: no-repeat;
+  background-attachment: fixed;     /* ← Keep if you want it fixed */
+  z-index: -2;
+}
 
     .youth-officers-section::after {
       content: "";
@@ -875,35 +901,9 @@
       transform: scale(0.9);
     }
 
-    /* SWIPE HINT */
+    /* SWIPE HINT - REMOVED */
     .swipe-hint {
-      position: fixed;
-      bottom: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(8px);
-      padding: 4px 12px;
-      border-radius: 30px;
-      color: #ffd700;
-      font-size: 0.5rem;
-      z-index: 10000;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-family: monospace;
-      white-space: nowrap;
-    }
-
-    .swipe-hint.show {
-      opacity: 1;
-    }
-
-    .swipe-hint i {
-      font-size: 0.7rem;
+      display: none;
     }
 
     /* RESPONSIVE */
@@ -1050,17 +1050,6 @@
         font-size: 0.85rem;
       }
 
-      .swipe-hint {
-        font-size: 0.45rem;
-        padding: 3px 8px;
-        bottom: 50px;
-        gap: 3px;
-      }
-      
-      .swipe-hint i {
-        font-size: 0.6rem;
-      }
-      
       .scroll-top {
         width: 28px;
         height: 28px;
@@ -1076,30 +1065,6 @@
       .cinema-lights span {
         width: 3px;
         height: 3px;
-      }
-
-      .glightbox-container .gclose {
-        top: 8px !important;
-        right: 8px !important;
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 14px !important;
-      }
-      
-      .glightbox-container .gnext {
-        right: 8px !important;
-        width: 30px !important;
-        height: 30px !important;
-      }
-      
-      .glightbox-container .gprev {
-        left: 8px !important;
-        width: 30px !important;
-        height: 30px !important;
-      }
-      
-      .glightbox-container .gslide-image img {
-        max-height: 60vh !important;
       }
     }
 
@@ -1262,13 +1227,18 @@
 
   </div>
 
-  <!-- SWIPE HINT -->
-  <div class="swipe-hint" id="swipeHint">
-    <i class="bi bi-hand-index-thumb"></i> SWIPE <i class="bi bi-arrow-left-right"></i>
+  <!-- CUSTOM LIGHTBOX - NO SWIPE -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lightbox-close" id="lightboxClose">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="Full view">
+      <div class="lightbox-caption" id="lightboxCaption">
+        <span class="title">SCENE</span> <span id="lightboxScene">001</span> — <span id="lightboxDesc">A Moment of Worship</span>
+      </div>
+    </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js">
-  </script>
 
   <script>
     // ============================================
@@ -1276,21 +1246,9 @@
     // ============================================
     const loadingScreen = document.getElementById('loadingScreen');
     const mainContent = document.getElementById('mainContent');
-    const swipeHint = document.getElementById('swipeHint');
 
-    // Hide loading screen immediately
     loadingScreen.classList.add('hide');
     mainContent.classList.add('show');
-
-    // Show swipe hint
-    setTimeout(() => {
-      if (swipeHint) {
-        swipeHint.classList.add('show');
-        setTimeout(() => {
-          swipeHint.classList.remove('show');
-        }, 2500);
-      }
-    }, 800);
 
     // ============================================
     // STARS - REDUCED
@@ -1373,7 +1331,7 @@
     let currentPageEnd = 30;
 
     const TOTAL_PAGES = Math.ceil(TOTAL_GALLERY_PHOTOS / PHOTOS_PER_PAGE);
-    let currentPage = 1, isLoading = false, lightbox = null;
+    let currentPage = 1, isLoading = false;
 
     function updatePhotoCountDisplay() {
       const display = document.getElementById('photoCountDisplay');
@@ -1411,19 +1369,88 @@
     }
 
     // ============================================
-    // IMAGE PATH - TRY .jpg FIRST, THEN .jpeg
+    // IMAGE PATH - .jpg FIRST
     // ============================================
     function getImagePath(n) {
       return `img/gallery/${n}`;
     }
 
     // ============================================
-    // CREATE PHOTO CARD - .jpg FIRST
+    // LIGHTBOX FUNCTIONS - SIMPLE, NO SWIPE
+    // ============================================
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxScene = document.getElementById('lightboxScene');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(n) {
+      const caption = getCaption(n);
+      const sceneNum = String(n).padStart(3, '0');
+      const imgPath = getImagePath(n);
+      
+      // Try .jpg first, then .jpeg
+      const extensions = ['.jpg', '.jpeg'];
+      let extIndex = 0;
+      
+      function tryNextExtension() {
+        if (extIndex < extensions.length) {
+          lightboxImage.src = imgPath + extensions[extIndex];
+          extIndex++;
+        } else {
+          lightboxImage.src = `https://picsum.photos/seed/${n}/800/600`;
+        }
+      }
+      
+      lightboxImage.onerror = function() {
+        this.onerror = null;
+        tryNextExtension();
+        if (extIndex >= extensions.length) {
+          this.onerror = function() {
+            this.onerror = null;
+            this.src = `https://picsum.photos/seed/${n}/800/600`;
+          };
+        }
+      };
+      
+      tryNextExtension();
+      
+      lightboxScene.textContent = sceneNum;
+      lightboxDesc.textContent = caption;
+      
+      lightboxOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightboxOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      // Clear image to prevent flash
+      setTimeout(() => {
+        lightboxImage.src = '';
+      }, 300);
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightboxOverlay.addEventListener('click', function(e) {
+      if (e.target === lightboxOverlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // ============================================
+    // CREATE PHOTO CARD - WITH CLICK
     // ============================================
     async function createPhotoCard(n) {
       const card = document.createElement('div'); 
       card.className = 'photo-card';
-      card.dataset.index = n;
       
       const imgDiv = document.createElement('div'); 
       imgDiv.className = 'photo-image';
@@ -1438,7 +1465,6 @@
       overlay.className = 'overlay'; 
       overlay.innerHTML = '<i class="bi bi-play-circle overlay-icon"></i>';
       
-      // TRY .jpg FIRST, then .jpeg
       const extensions = ['.jpg', '.jpeg'];
       let extIndex = 0;
       
@@ -1481,61 +1507,17 @@
       card.appendChild(imgDiv); 
       card.appendChild(captionDiv);
       
+      // Click to open lightbox
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        openLightbox(n);
+      });
+      
       return card;
     }
 
     // ============================================
-    // LIGHTBOX FUNCTION - .jpg FIRST
-    // ============================================
-    function openLightbox(n) {
-      if (lightbox) {
-        lightbox.close();
-        lightbox = null;
-      }
-      
-      const { start, end } = getPageRange();
-      const allImages = [];
-      
-      for (let i = start; i <= end; i++) {
-        allImages.push({ 
-          href: getImagePath(i) + '.jpg',
-          type: 'image/jpeg',
-          title: `SCENE ${String(i).padStart(3, '0')} - ${getCaption(i)}`,
-          description: `📸 Living Testimonies - Youth Ministry`
-        });
-      }
-      
-      const currentIndex = n - start;
-      
-      lightbox = GLightbox({
-        elements: allImages,
-        startAt: currentIndex,
-        touchNavigation: true,
-        loop: true,
-        zoomable: true,
-        draggable: true,
-        swipeTolerance: 50,
-        width: '95vw',
-        height: '95vh',
-        openEffect: 'zoom',
-        closeEffect: 'zoom',
-        slideEffect: 'fade',
-        moreLength: 60,
-        closeOnOutsideClick: true,
-        onOpen: function() {
-          document.body.style.overflow = 'hidden';
-        },
-        onClose: function() {
-          document.body.style.overflow = '';
-          lightbox = null;
-        }
-      });
-      
-      lightbox.open();
-    }
-
-    // ============================================
-    // CREATE OFFICER CARD - .jpg FIRST
+    // CREATE OFFICER CARD
     // ============================================
     async function createOfficerCard(o) {
       const card = document.createElement('div'); 
@@ -1678,7 +1660,7 @@
     }
     
     // ============================================
-    // EVENT LISTENERS - ONE DELEGATED CLICK HANDLER
+    // EVENT LISTENERS
     // ============================================
     function initMobileMenu() { 
       const btn = document.getElementById('mobileBtn'), menu = document.getElementById('navLinks'); 
@@ -1715,25 +1697,10 @@
     }
     
     function initEventListeners() {
-      // PAGE NAVIGATION
       document.getElementById('prevBtn').addEventListener('click', prevPage); 
       document.getElementById('nextBtn').addEventListener('click', nextPage);
       
-      // GALLERY CLICK HANDLER - EVENT DELEGATION (ONE LISTENER FOR ALL PHOTOS)
-      const grid = document.getElementById('galleryGrid');
-      if (grid) {
-        grid.addEventListener('click', function(e) {
-          const card = e.target.closest('.photo-card');
-          if (card) {
-            const index = parseInt(card.dataset.index);
-            if (!isNaN(index)) {
-              openLightbox(index);
-            }
-          }
-        });
-      }
-      
-      // Touch swipe support
+      // Touch swipe for pagination only
       let touchStartX = 0;
       let touchEndX = 0;
       document.addEventListener('touchstart', (e) => {
@@ -1752,21 +1719,15 @@
         }
       }, { passive: true });
       
-      // Keyboard support
+      // Keyboard for pagination
       document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') {
           if (!isLoading) nextPage();
         } else if (e.key === 'ArrowLeft') {
           if (!isLoading) prevPage();
-        } else if (e.key === 'Escape') {
-          if (lightbox) {
-            lightbox.close();
-            lightbox = null;
-          }
         }
       });
       
-      // Load initial data
       loadOfficers();
       loadPage();
       updatePageIndicator();
@@ -1789,7 +1750,6 @@
       }, 500);
     }, { passive: true });
 
-    // Initialize everything
     initEventListeners();
   </script>
 </body>
